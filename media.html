@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Media Coverage - Vivek Raj</title>
+  <meta name="description" content="Media Coverage of Vivek Raj Poojary — newspaper articles and publications showcasing his achievements in business, agriculture, and technology.">
+  <meta name="keywords" content="Vivek Raj, vivekraj, vivekrajpoojary, Vivek Raj Poojary, media coverage">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .media-full-section {
+      padding: 60px 0 80px;
+      min-height: 100vh;
+    }
+
+    .media-article-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 8px;
+    }
+
+    .media-article-count .count-badge {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2px 14px;
+      font-weight: 700;
+      color: var(--accent-color);
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- ===== SIDEBAR — matches index.html exactly ===== -->
+  <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="header-container d-flex flex-column align-items-start">
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html"><i class="bi bi-house navicon"></i>Home</a></li>
+          <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+          <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+          <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+          <li><a href="media.html" class="active"><i class="bi bi-newspaper navicon"></i> Media Coverage</a></li>
+          <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="social-links text-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </header>
+  <!-- ===== END SIDEBAR ===== -->
+
+  <main class="main">
+
+    <section class="media-full-section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Media Coverage</h2>
+        <p>
+          A complete record of Vivek Raj's media presence — newspaper articles, interviews, and
+          publications showcasing his impact across business, agriculture, and technology.
+        </p>
+        <div class="media-article-count">
+          Total articles shown: <span class="count-badge" id="media-total-count">—</span>
+        </div>
+      </div>
+
+      <div class="container">
+
+        <!-- Language Toggle -->
+        <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="50">
+          <div class="d-inline-flex gap-3" role="group" aria-label="Language Toggle">
+            <button id="btn-en" class="media-lang-btn active" onclick="toggleLanguage('en')">
+              🅴 English Articles
+            </button>
+            <button id="btn-kn" class="media-lang-btn" onclick="toggleLanguage('kn')">
+              <i class="bi bi-translate me-2"></i>Regional Language
+            </button>
+          </div>
+        </div>
+
+        <!-- Full Articles Grid — ALL cards, no limit -->
+        <div class="row g-4" id="media-cards-grid">
+          <!-- Injected by media-all.js -->
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">2026</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        <a href="https://panamacorporationltd.com/">PANAMA CORPORATION LTD.</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS (handles sidebar toggle, scroll-top, AOS init etc.) -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Media All JS — renders ALL articles with no preview cap -->
+  <script src="assets/js/media-all.js"></script>
+
+</body>
+
+</html>

@@ -3262,6 +3262,23 @@ section,
   }
 }
 
+.more-text {
+  display: none;
+}
+
+.read-more-btn {
+  color: darkgray;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.read-less-btn {
+  color: darkgray;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 5px;
+}
 
 /* ===== Patents Section ===== */
 #patents .row {

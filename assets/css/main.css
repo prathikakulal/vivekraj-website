@@ -2974,6 +2974,295 @@ section,
   color: var(--accent-color);
 }
 
+
+/*--------------------------------------------------------------
+# Research Section
+--------------------------------------------------------------*/
+
+.research .research-header {
+  margin-bottom: 60px;
+}
+
+.research .research-header .research-intro .research-heading {
+  font-size: 48px;
+  margin-bottom: 0;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--heading-color);
+}
+
+.research .research-header .research-intro .research-heading div {
+  display: block;
+  position: relative;
+}
+
+.research .research-header .research-intro .research-heading span {
+  display: block;
+  color: var(--accent-color);
+}
+
+@media (max-width: 992px) {
+  .research .research-header .research-intro .research-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .research .research-header .research-intro .research-heading {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.research .research-header .research-summary p {
+  margin-bottom: 25px;
+  color: var(--default-color);
+}
+
+.research .research-header .research-summary .research-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 30px;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.research .research-header .research-summary .research-btn i {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.research .research-header .research-summary .research-btn:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+  color: var(--contrast-color);
+}
+
+.research .research-header .research-summary .research-btn:hover i {
+  transform: translateX(5px);
+}
+
+@media (max-width: 992px) {
+  .research .research-header .research-summary {
+    margin-top: 30px;
+  }
+}
+
+.research .research-card {
+  padding: 40px 40px 40px 40px;
+  margin-bottom: 30px;
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+  transition: all 0.3s ease;
+}
+
+.research .research-card .research-icon {
+  margin-bottom: 25px;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 64px;
+  height: 64px;
+}
+
+.research .research-card .research-icon i {
+  font-size: 32px;
+  color: var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.research .research-card h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.research .research-card h3 a {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.research .research-card h3 a span {
+  display: block;
+}
+
+.research .research-card h3 a:hover {
+  color: var(--accent-color);
+}
+
+.research .research-card p {
+  color: var(--default-color);
+  transition: color 0.3s ease;
+  margin-bottom: 0;
+}
+
+.research .research-card .research-action {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.research .research-card .research-action i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  transition: transform 0.3s ease;
+}
+
+.research .research-card .research-action:hover i {
+  transform: rotate(45deg);
+}
+
+.research .research-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--surface-color);
+  clip-path: polygon(70% 0, 100% 30%, 100% 100%, 0 100%, 0 0);
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.research .research-card:hover {
+  border-color: transparent;
+}
+
+.research .research-card:hover::before {
+  opacity: 1;
+  visibility: visible;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.research .research-card:hover h3 a {
+  color: var(--accent-color);
+}
+
+.research .research-card:hover h3 a:hover {
+  color: var(--accent-color);
+}
+
+.research .research-card:hover p {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.research .research-card:hover .research-action {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.research .research-card:hover .research-icon i {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .research .research-card {
+    padding: 150px 25px 25px;
+  }
+
+  .research .research-card h3 {
+    font-size: 24px;
+  }
+
+  .research .research-card .research-icon {
+    position: absolute;
+    top: 40px;
+    left: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .research {
+    padding: 70px 0 50px;
+  }
+}
+
+/* Research Paper Card Style (Same Theme - No Font Change) */
+
+.research-details .research-paper-box {
+  background: var(--surface-color);
+  padding: 35px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  position: relative;
+}
+
+.research-details .research-paper-info {
+  flex: 1;
+}
+
+.research-details .research-thumbnail {
+  flex-shrink: 0;
+  width: 160px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.research-details .research-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.research-details details summary {
+  cursor: pointer;
+  color: var(--accent-color);
+  font-weight: 600;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.research-details .extra-text {
+  animation: fadeIn 0.4s ease;
+  margin-top: 15px;
+}
+
+.research-details .read-less {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .research-details .research-paper-box {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .research-details .research-thumbnail {
+    width: 100%;
+    max-width: 220px;
+  }
+}
+
+
 /* ===== Patents Section ===== */
 #patents .row {
   align-items: stretch;

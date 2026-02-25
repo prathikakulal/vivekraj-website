@@ -1119,44 +1119,6 @@ section,
   transform: translateY(-2px);
 }
 
-.about-more {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease;
-}
-
-.about-more.active {
-  max-height: 5000px; /* big enough to show all content */
-}
-
-
-.read-btn {
-  background-color: black;
-  color: white;
-  padding: 10px 25px;
-  border: 2px solid black;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 5px;
-  margin-top: 20px;
-}
-
-/* Hover effect */
-.read-btn:hover {
-  background-color: white;
-  color: black;
-}
-.read-btn {
-  background: black;
-  color: white;
-  padding: 10px 20px;
-  border: 2px solid black;
-  cursor: pointer;
-  transition: 0.3s;
-
-  display: block;        /* important */
-  margin: 30px auto;     /* centers horizontally */
-}
 
 
 

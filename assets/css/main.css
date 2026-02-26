@@ -2838,7 +2838,25 @@ section,
 
 
 /* Mobile Language Toggle Fix */
+/* Mobile Language Toggle Fix - Icon left aligned */
+@media (max-width: 768px) {
 
+  .media-lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* Left-align everything */
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .media-lang-btn i {
+    font-size: 16px;
+    flex-shrink: 0;               /* Prevent icon from shrinking */
+    margin-right: 0;              /* Remove old margin, gap handles spacing */
+  }
+
+}
 
 .media-lang-btn:hover {
   border-color: var(--accent-color);

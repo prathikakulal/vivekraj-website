@@ -1185,53 +1185,56 @@ section,
 
 #download-buttons-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  gap: 20px;
 }
 
 @media (max-width: 991px) {
   #download-buttons-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
   }
 }
 
 @media (max-width: 575px) {
   #download-buttons-grid {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
 }
 
 .download-btn {
-  display: block;
-  padding: 15px 20px;
-  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
   color: var(--default-color);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
-  line-height: 1;
-  border-radius: 6px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 50px;   /* ← This makes pill shape */
+  border: 2px solid rgba(255,255,255,0.35);
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
-  letter-spacing: 0;
-  text-align: left;
+  position: relative;
 }
 
 .download-btn:hover {
-  color: var(--default-color);
-  background-color: color-mix(in srgb, var(--surface-color), var(--default-color) 8%);
-  border-color: transparent;
-  border-left: 3px solid var(--default-color);
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
   text-decoration: none;
-  transform: none;
-  box-shadow: none;
-  font-weight: 600;
 }
 
-.download-btn:active {
-  transform: none;
+.download-btn i {
+  transition: 0.3s;
+}
+
+.download-btn:hover i {
+  color: #000000;
 }
 
 /*--------------------------------------------------------------

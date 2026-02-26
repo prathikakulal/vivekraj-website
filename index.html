@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- =======================================================
   * Template Name: SnapFolio
@@ -46,7 +47,7 @@
         <ul>
           <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
           <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-          <li><a href="#downloads"><i class="bi bi-file-earmark-text navicon"></i> Downloads</a></li>
+          <li><a href="#downloads"><i class="bi bi-download navicon"></i> Downloads</a></li>
           <li><a href="#services"><i class="bi bi-newspaper navicon"></i> Media Coverage </a></li>
           <li><a href="#research"><i class="bi bi-gear navicon"></i> Research and Development</a></li>
           <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
@@ -355,16 +356,13 @@
           <div id="download-buttons-grid" class="download-buttons-grid">
             <a href="assets/Vivek Raj Poojary Profile Aug'24.pdf" target="_blank" rel="noopener noreferrer"
               class="download-btn">
-              Download profile pdf
+              <i class="fa-solid fa-file-pdf"></i> Download profile PDF
             </a>
             <a href="assets/img/VivekRaj.jpg" target="_blank" rel="noopener noreferrer" class="download-btn">
-              Download profile image
-            </a>
-            <a href="https://linktr.ee/vivekrajpoojary" target="_blank" rel="noopener noreferrer" class="download-btn">
-              Profile on link tree
+              <i class="fa-solid fa-image"></i> Download profile image
             </a>
             <a href="assets/img/VivekRaj.jpg" target="_blank" rel="noopener noreferrer" class="download-btn">
-              Download visiting card
+              <i class="fa-solid fa-address-card"></i> Download visiting card
             </a>
           </div>
         </div>
@@ -568,7 +566,7 @@
           <div class="patent-card">
             <img src="assets/img/patent1.jpeg" alt="Smart Farming Innovation" loading="lazy"/>
             <div class="patent-label">
-              <h5>Smart Farming Innovation</h5>
+              <h5>Smart Farming Innovation System</h5>
               <p>International Patent</p>
             </div>
           </div>
@@ -580,7 +578,7 @@
           <div class="patent-card">
             <img src="assets/img/patent2.jpeg" alt="Hydroponic Saffron Cultivation" loading="lazy"/>
             <div class="patent-label">
-              <h5>Hydroponic Saffron Cultivation</h5>
+              <h5>Hydroponic Saffron Cultivation System</h5>
               <p>International Patent</p>
             </div>
           </div>
@@ -592,7 +590,7 @@
           <div class="patent-card">
             <img src="assets/img/patent3.jpeg" alt="AI-Guided Hydroponic Cultivation" loading="lazy"/>
             <div class="patent-label">
-              <h5>AI-Guided Hydroponic Cultivation</h5>
+              <h5>AI-Guided Hydroponic Cultivation System</h5>
               <p>International Patent</p>
             </div>
           </div>
@@ -648,7 +646,7 @@
                 </div>
                 <div class="content">
                   <h4>Email Us</h4>
-                  <a href="mailto:carol@panamacorporationltd.com" style="color: #555; text-decoration: none;">carol@panamacorporationltd.com</a>
+                  <p><a href="mailto:carol@panamacorporationltd.com" style="word-break: break-all;">carol@panamacorporationltd.com</a></p>
                 </div>
               </div>
             </div>
@@ -678,7 +676,9 @@
                     <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
                   </div>
 
-                  <div class="h-captcha" data-sitekey="cd8e6168-e7ba-4062-bdfc-4c9ad61ab8a6"></div>
+                  <div class="col-12">
+                    <div class="h-captcha" data-sitekey="cd8e6168-e7ba-4062-bdfc-4c9ad61ab8a6"></div>
+                  </div>
 
                   <div class="col-12 text-center">
                     <div class="loading">Loading</div>
@@ -699,6 +699,8 @@
       </div>
 
     </section><!-- /Contact Section -->
+
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </main>
 
 

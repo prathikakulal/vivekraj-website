@@ -507,7 +507,6 @@ section,
   text-align: center;
   padding-bottom: 60px;
   position: relative;
-  width: 100%;
 }
 
 /* .section-title h2 {
@@ -540,7 +539,6 @@ section,
   gap: 16px;
   flex-wrap: nowrap;
   text-align: center;
-  width: 100%;
 }
 
 .section-title h2::before,
@@ -562,17 +560,14 @@ section,
 
   .section-title h2::before,
   .section-title h2::after {
-    flex: 1 1 auto;
-    max-width: 25px;
+    flex: 1 1 30px;
+    max-width: 30px;
   }
 
 }
 
 .section-title p {
   margin-bottom: 0;
-  max-width: 100% !important;
-  width: 100%;
-  margin-top: 12px;
 }
 
 /*--------------------------------------------------------------
@@ -2835,44 +2830,9 @@ section,
   transition: all 0.3s ease;
 }
 
-.media-lang-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px; /* spacing between icon and text */
-}
-
-.media-lang-btn .lang-icon {
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-}
-
 
 /* Mobile Language Toggle Fix */
-@media (max-width: 768px) {
 
-  .media-lang-toggle {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .media-lang-btn {
-    flex: 1;               /* Both buttons take equal width */
-    max-width: 200px;      /* Prevent them from getting too wide */
-    font-size: 15px;
-    padding: 14px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-sizing: border-box;
-  }
-
-}
 
 .media-lang-btn:hover {
   border-color: var(--accent-color);

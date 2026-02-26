@@ -2803,15 +2803,18 @@ section,
   .media-lang-toggle {
     width: 100%;
     display: flex;
-    gap: 12px;
+    justify-content: center;
+    gap: 14px;
   }
 
   .media-lang-btn {
-    flex: 1;
+    min-width: 160px;
+    font-size: 15px;       /* Bigger font */
+    padding: 14px 22px;    /* Better touch size */
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: center;  /* Center content */
+    text-align: center;
   }
 
 }

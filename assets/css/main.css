@@ -553,21 +553,22 @@ section,
 @media (max-width: 576px) {
 
   .section-title h2 {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     font-size: 22px;
-    gap: 8px;
   }
 
   .section-title h2::before,
   .section-title h2::after {
-    flex: 1 1 30px;
-    max-width: 30px;
+    flex: 1;
+    max-width: 25px;
   }
 
 }
 
 .section-title p {
   margin-bottom: 0;
+  max-width: 100% !important;
+  width: 100%;
 }
 
 /*--------------------------------------------------------------

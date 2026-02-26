@@ -3193,26 +3193,6 @@ section,
   }
 }
 
-.research-row{
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -12px;
-  margin-right: -12px;
-}
-
-.research-row > [class*='col-']{
-  display: flex;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-bottom: 24px;
-}
-
-.research-card{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
 
 /* Research Paper Card Style (Same Theme - No Font Change) */
 

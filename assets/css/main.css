@@ -509,7 +509,7 @@ section,
   position: relative;
 }
 
-.section-title h2 {
+/* .section-title h2 {
   font-size: 32px;
   font-weight: 700;
   position: relative;
@@ -530,6 +530,37 @@ section,
 
 .section-title h2:after {
   margin: 0 0 10px 15px;
+} */
+
+.section-title h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.section-title h2::before,
+.section-title h2::after {
+  content: "";
+  flex: 0 0 50px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+@media (max-width: 576px) {
+
+  .section-title h2 {
+    font-size: 24px;
+    gap: 10px;
+  }
+
+  .section-title h2::before,
+  .section-title h2::after {
+    max-width: 30px;
+  }
+
 }
 
 .section-title p {

@@ -2830,6 +2830,19 @@ section,
   transition: all 0.3s ease;
 }
 
+.media-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* spacing between icon and text */
+}
+
+.media-lang-btn .lang-icon {
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
 
 /* Mobile Language Toggle Fix */
 @media (max-width: 768px) {

@@ -2838,17 +2838,20 @@ section,
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 14px;
   }
 
   .media-lang-btn {
-    min-width: 160px;
-    font-size: 15px;       /* Bigger font */
-    padding: 14px 22px;    /* Better touch size */
+    flex: 1;               /* Both buttons take equal width */
+    max-width: 200px;      /* Prevent them from getting too wide */
+    font-size: 15px;
+    padding: 14px 22px;
     display: flex;
     align-items: center;
-    justify-content: center;  /* Center content */
+    justify-content: center;
     text-align: center;
+    box-sizing: border-box;
   }
 
 }

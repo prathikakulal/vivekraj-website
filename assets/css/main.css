@@ -2799,6 +2799,23 @@ section,
   transition: all 0.3s ease;
 }
 
+/* Mobile Only: Left Align Language Buttons */
+@media (max-width: 768px) {
+
+  .media-lang-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .media-lang-btn {
+    flex: 1;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+}
+
+
 .media-lang-btn:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);

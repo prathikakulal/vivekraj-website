@@ -2831,10 +2831,9 @@ section,
 }
 
 .media-lang-btn i {
-  font-size: 14px;      /* Reduce icon size */
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
+  font-size: 13px;
+  margin-right: 6px;   /* Cleaner spacing than me-2 */
+  vertical-align: middle;
 }
 
 

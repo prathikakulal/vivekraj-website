@@ -1193,14 +1193,28 @@ section,
   margin: 30px auto;     /* centers horizontally */
 }
 .about .contact-links .contact-item {
-  flex-wrap: wrap;
-  word-break: break-word;
-  overflow-wrap: anywhere;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .about .contact-links .contact-item span {
-  word-break: break-word;
+  flex: 1;                  /* take remaining space */
+  word-break: break-word;   /* allow wrapping */
   overflow-wrap: anywhere;
+}
+.about .contact-links {
+  width: 100%;
+  text-align: left;     /* override center from profile-card */
+}
+
+.about .contact-links .contact-item {
+  justify-content: flex-start;   /* align icon + text properly */
+  text-align: left;
+}
+
+.about .contact-links .contact-item i {
+  min-width: 20px;   /* keeps all icons aligned perfectly */
 }
 
 /*--------------------------------------------------------------

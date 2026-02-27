@@ -3321,14 +3321,16 @@ section,
   color: darkgray;
   font-weight: 600;
   cursor: pointer;
-  margin-left: 5px;
+  margin-left: 10px;
+  display: inline-block;
 }
 
 .read-less-btn {
   color: darkgray;
   font-weight: 600;
   cursor: pointer;
-  margin-left: 5px;
+  margin-left: 10px;
+  display: inline-block;
 }
 
 /* ===== Patents Section ===== */

@@ -406,25 +406,21 @@
   <script>
     function toggleText(btn) {
 
-      let moreText = btn.previousElementSibling;
-      let dots = moreText.previousElementSibling;
+      const parent = btn.previousElementSibling;
+      const dots = parent.querySelector(".dots");
+      const moreText = parent.querySelector(".more-text");
 
       if (moreText.style.display === "inline") {
-
         moreText.style.display = "none";
         dots.style.display = "inline";
-        btn.innerHTML = "Read More +";
-        btn.classList.remove("read-less-btn");
-
-      } else {
-
+        btn.textContent = "Read More +";
+     } else {
         moreText.style.display = "inline";
         dots.style.display = "none";
-        btn.innerHTML = " Read Less -";
-        btn.classList.add("read-less-btn");
+        btn.textContent = "Read Less -";
+     }
 
-      }
-    }
+   }
   </script>
 
 </body>

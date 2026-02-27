@@ -975,6 +975,15 @@ section,
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
+/* additional added  */
+.about .contact-links .contact-item span {
+  flex: 1;
+  min-width: 0;                
+  overflow-wrap: anywhere;     
+  word-break: break-word;
+  white-space: normal;
+}
+
 .about .contact-links .contact-item:hover {
   background-color: var(--accent-color);
   color: var(--contrast-color);

@@ -984,6 +984,15 @@ section,
   white-space: normal;
 }
 
+.about .contact-links .contact-item.email span{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  flex: 1;
+  min-width: 0;
+}
+
 .about .contact-links .contact-item:hover {
   background-color: var(--accent-color);
   color: var(--contrast-color);

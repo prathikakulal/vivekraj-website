@@ -1192,7 +1192,16 @@ section,
   display: block;        /* important */
   margin: 30px auto;     /* centers horizontally */
 }
+.about .contact-links .contact-item {
+  flex-wrap: wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
 
+.about .contact-links .contact-item span {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
 
 /*--------------------------------------------------------------
 # Download Section Wrapper
@@ -1210,6 +1219,7 @@ section,
   margin: 0 auto;
   padding: 0 24px;
 }
+
 
 /*--------------------------------------------------------------
 # Download Buttons Row

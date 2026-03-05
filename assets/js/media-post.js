@@ -857,7 +857,7 @@ function renderCards() {
       <div class="col-12 text-center py-5" data-aos="fade-up">
         <i class="bi bi-calendar-event" style="font-size: 48px; color: var(--accent-color); opacity: 0.6;"></i>
         <h4 style="margin-top: 20px; color: var(--heading-color); font-weight: 600;">Events</h4>
-        <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-top: 8px;">Will be loaded soon...</p>
+        <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-top: 8px;">Will be updated soon...</p>
       </div>
     `;
     if (seeAllBtn) seeAllBtn.style.display = "none";

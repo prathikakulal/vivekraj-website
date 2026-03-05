@@ -1,15 +1,25 @@
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Vivek Raj - Pioneer in AI AgroTech</title>
+  <title>Media Coverage - Vivek Raj</title>
   <meta name="description" content="Media Coverage of Vivek Raj Poojary — newspaper articles and publications showcasing his achievements in business, agriculture, and technology.">
   <meta name="keywords" content="Vivek Raj, vivekraj, vivekrajpoojary, Vivek Raj Poojary, media coverage">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon12.png" rel="icon">
+  <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -50,46 +60,86 @@
       color: var(--accent-color);
       letter-spacing: 0.3px;
     }
+
+    /* ── Online card style (no image, link-focused) ── */
+    .media-card--online {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 180px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .media-card--online:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-4px);
+    }
+
+    .media-card-online-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+      height: 100%;
+    }
+
+    .media-card-readmore {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-color);
+      text-decoration: none;
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .media-card-readmore:hover {
+      opacity: 0.75;
+      color: var(--accent-color);
+    }
   </style>
 </head>
 
 <body class="index-page">
 
-  <!-- ===== SIDEBAR — matches index.html exactly ===== -->
+  <!-- ===== SIDEBAR ===== -->
   <header id="header" class="header dark-background d-flex flex-column justify-content-center">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="header-container d-flex flex-column align-items-start">
-    
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="index.html"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="index.html#downloads"><i class="bi bi-download navicon"></i> Downloads</a></li>
-        <li><a href="index.html#services" class="active"><i class="bi bi-newspaper navicon"></i> Media Coverage</a></li>
-        <li><a href="index.html#research"><i class="bi bi-gear navicon"></i> Research and Development</a></li>
-        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html"><i class="bi bi-house navicon"></i>Home</a></li>
+          <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+          <li><a href="index.html#downloads"><i class="bi bi-file-earmark-text navicon"></i> Downloads</a></li>
+          <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+          <li><a href="media.html" class="active"><i class="bi bi-newspaper navicon"></i> Media Coverage</a></li>
+          <li><a href="index.html#research"><i class="bi bi-gear navicon"></i> Research and Development</a></li>
+          <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        </ul>
+      </nav>
 
-    <div class="social-links text-center">
-      <a href="https://x.com/iamvraj5?s=20" target="_blank" class="twitter">
-        <img src="assets/img/twitter.png" style="width: 18px; height: 18px; object-fit: contain;" />
-      </a>
-      <a href="https://www.facebook.com/connectvivekraj" target="_blank" class="facebook">
-        <img src="assets/img/fb.png" style="width: 18px; height: 18px; object-fit: contain;" />
-      </a>
-      <a href="https://www.instagram.com/vivekrajpanam/" target="_blank" class="instagram">
-        <img src="assets/img/instagram.png" style="width: 18px; height: 18px; object-fit: contain;" />
-      </a>
-      <a href="https://panamacorporationltd.com/" target="_blank" class="google-plus">
-        <img src="assets/img/panama-icon.png" style="width: 18px; height: 18px; object-fit: contain;" />
-      </a>
-      <a href="https://linktr.ee/vivekrajpoojary" target="_blank" class="linktree">
-        <img src="assets/img/lt.png" style="width: 18px; height: 18px; object-fit: contain;" />
-      </a>
-    </div>
-
+      <div class="social-links text-center">
+        <a href="https://x.com/iamvraj5?s=20" target="_blank" class="twitter">
+          <img src="assets/img/twitter.png" style="width: 18px; height: 18px; object-fit: contain;"/>
+        </a>
+        <a href="https://www.facebook.com/connectvivekraj" target="_blank" class="facebook">
+          <img src="assets/img/fb.png" style="width: 18px; height: 18px; object-fit: contain;"/>
+        </a>
+        <a href="https://www.instagram.com/vivekrajpanam/" target="_blank" class="instagram">
+          <img src="assets/img/instagram.png" style="width: 18px; height: 18px; object-fit: contain;"/>
+        </a>
+        <a href="https://panamacorporationltd.com/" target="_blank" class="google-plus">
+          <img src="assets/img/panama-icon.png" style="width: 18px; height: 18px; object-fit: contain;"/>
+        </a>
+        <a href="https://linktr.ee/vivekrajpoojary" target="_blank" class="linktree">
+          <img src="assets/img/lt.png" style="width: 18px; height: 18px; object-fit: contain;"/>
+        </a>
+      </div>
     </div>
   </header>
   <!-- ===== END SIDEBAR ===== -->
@@ -112,19 +162,22 @@
 
       <div class="container">
 
-        <!-- Language Toggle -->
+        <!-- Tab Toggle -->
         <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="50">
-          <div class="d-inline-flex gap-3" role="group" aria-label="Language Toggle">
+          <div class="d-inline-flex gap-3 flex-wrap justify-content-center" role="group" aria-label="Media Category Toggle">
             <button id="btn-en" class="media-lang-btn active" onclick="toggleLanguage('en')">
-              <i class="bi bi-globe2 "></i>English Articles
+              <i class="bi bi-globe2"></i> English Articles
             </button>
             <button id="btn-kn" class="media-lang-btn" onclick="toggleLanguage('kn')">
-              <i class="bi bi-translate"></i>Regional Languages
+              <i class="bi bi-translate"></i> Regional Languages
+            </button>
+            <button id="btn-online" class="media-lang-btn" onclick="toggleLanguage('online')">
+              <i class="bi bi-link-45deg"></i> Online
             </button>
           </div>
         </div>
 
-        <!-- Full Articles Grid — ALL cards, no limit -->
+        <!-- Cards Grid — ALL cards rendered, no limit -->
         <div class="row g-4" id="media-cards-grid">
           <!-- Injected by media-all.js -->
         </div>
@@ -142,7 +195,7 @@
         <p>© <span>Copyright</span> <strong class="px-1 sitename">2026</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
-        <a href="https://panamacorporationltd.com/" target = "_blank">PANAMA CORPORATION LTD.</a>
+        <a href="https://panamacorporationltd.com/">PANAMA CORPORATION LTD.</a>
       </div>
     </div>
   </footer>
@@ -161,10 +214,10 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Main JS (handles sidebar toggle, scroll-top, AOS init etc.) -->
+  <!-- Main JS -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Media All JS — renders ALL articles with no preview cap -->
+  <!-- Media All JS — renders ALL articles, no preview cap -->
   <script src="assets/js/media-all.js"></script>
 
 </body>

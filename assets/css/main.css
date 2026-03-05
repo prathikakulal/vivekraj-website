@@ -1053,6 +1053,9 @@ section,
 #aboutMore,
 #aboutMore p {
     text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    word-spacing: -0.05em;
 }
 
 .about .about-content .description p:last-child {

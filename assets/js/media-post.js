@@ -804,6 +804,105 @@ const cardData = [
   }
 ];
 
+// let currentLang = "en";
+// const PREVIEW_COUNT = 4;
+
+// // ── Single card renderer — same image card for ALL tabs ───────────────────
+// function createCard(card, index) {
+//   const targetLink = card.link ? card.link : card.img;
+//   const hasLink = !!card.link;
+//   const delay = (index % 4) * 100;
+//   const icon = card.lang === "online" ? "link-45deg" : "newspaper";
+
+//   return `
+//     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
+//       <div class="media-card">
+//         <div class="media-card-img-wrap">
+//           <img
+//             src="${card.img}"
+//             alt="${card.desc}"
+//             class="media-card-img"
+//             loading="lazy"
+//             onerror="this.src='assets/img/services/default-online.jpg'"
+//           />
+//           <div class="media-card-overlay">
+//             <a href="${targetLink}" target="_blank" class="media-card-link" title="Read Article">
+//               <i class="bi bi-${hasLink ? 'box-arrow-up-right' : 'zoom-in'}"></i>
+//             </a>
+//           </div>
+//         </div>
+//         <div class="media-card-body">
+//           <span class="media-source-badge">
+//             <i class="bi bi-${icon} me-1"></i>${card.src}
+//           </span>
+//           <h5 class="media-card-title">
+//             <a href="${targetLink}" target="_blank">${card.desc}</a>
+//           </h5>
+//         </div>
+//       </div>
+//     </div>
+//   `;
+// }
+
+// // ── Render with preview cap (used by index.html) ──────────────────────────
+// function renderCards() {
+//   const grid = document.getElementById("media-cards-grid");
+//   const seeAllBtn = document.getElementById("media-see-all-btn");
+//   if (!grid) return;
+
+//    if (currentLang === "online") {
+//     grid.innerHTML = `
+//       <div class="col-12 text-center py-5" data-aos="fade-up">
+//         <i class="bi bi-calendar-event" style="font-size: 48px; color: var(--accent-color); opacity: 0.6;"></i>
+//         <h4 style="margin-top: 20px; color: var(--heading-color); font-weight: 600;">Events</h4>
+//         <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-top: 8px;">Will be loaded soon.</p>
+//       </div>
+//     `;
+//     if (countEl) countEl.textContent = "0";
+//     return;
+//   }
+
+//   const filtered = cardData.filter(card => card.lang === currentLang);
+//   const toShow = filtered.slice(0, PREVIEW_COUNT);
+
+//   grid.innerHTML = toShow.map((card, i) => createCard(card, i)).join("");
+
+//   if (seeAllBtn) {
+//     if (filtered.length <= PREVIEW_COUNT) {
+//       seeAllBtn.style.display = "none";
+//     } else {
+//       seeAllBtn.style.display = "inline-flex";
+//       seeAllBtn.innerHTML = `<i class="bi bi-grid-3x3-gap me-2"></i>See All Media <span class="media-count-badge">${filtered.length}</span>`;
+//       seeAllBtn.onclick = () => { window.location.href = "media.html"; };
+//     }
+//   }
+
+//   if (typeof AOS !== "undefined") AOS.refresh();
+// }
+
+// function toggleLanguage(lang) {
+//   currentLang = lang;
+//   renderCards();
+//   updateButtonStyles(lang);
+// }
+
+// function updateButtonStyles(lang) {
+//   ["btn-en", "btn-kn", "btn-online"].forEach(id => {
+//     const btn = document.getElementById(id);
+//     if (btn) btn.classList.remove("active");
+//   });
+//   const map = { en: "btn-en", kn: "btn-kn", online: "btn-online" };
+//   const active = document.getElementById(map[lang]);
+//   if (active) active.classList.add("active");
+// }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   renderCards();
+//   updateButtonStyles("en");
+// });
+
+
+
 let currentLang = "en";
 const PREVIEW_COUNT = 4;
 
@@ -850,6 +949,20 @@ function renderCards() {
   const seeAllBtn = document.getElementById("media-see-all-btn");
   if (!grid) return;
 
+  // Events tab: coming soon
+  if (currentLang === "events") {
+    grid.innerHTML = `
+      <div class="col-12 text-center py-5" data-aos="fade-up">
+        <i class="bi bi-calendar-event" style="font-size: 48px; color: var(--accent-color); opacity: 0.6;"></i>
+        <h4 style="margin-top: 20px; color: var(--heading-color); font-weight: 600;">Events</h4>
+        <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-top: 8px;">Will be loaded soon.</p>
+      </div>
+    `;
+    if (seeAllBtn) seeAllBtn.style.display = "none";
+    if (typeof AOS !== "undefined") AOS.refresh();
+    return;
+  }
+
   const filtered = cardData.filter(card => card.lang === currentLang);
   const toShow = filtered.slice(0, PREVIEW_COUNT);
 
@@ -875,11 +988,11 @@ function toggleLanguage(lang) {
 }
 
 function updateButtonStyles(lang) {
-  ["btn-en", "btn-kn", "btn-online"].forEach(id => {
+  ["btn-en", "btn-kn", "btn-online", "btn-events"].forEach(id => {
     const btn = document.getElementById(id);
     if (btn) btn.classList.remove("active");
   });
-  const map = { en: "btn-en", kn: "btn-kn", online: "btn-online" };
+  const map = { en: "btn-en", kn: "btn-kn", online: "btn-online", events: "btn-events" };
   const active = document.getElementById(map[lang]);
   if (active) active.classList.add("active");
 }

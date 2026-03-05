@@ -1044,6 +1044,15 @@ section,
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 1.5rem;
+  text-align: justify; 
+}
+
+
+.about .section-header p,
+.about .section-header,
+#aboutMore,
+#aboutMore p {
+    text-align: justify;
 }
 
 .about .about-content .description p:last-child {

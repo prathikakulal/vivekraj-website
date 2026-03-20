@@ -566,7 +566,19 @@ function updateButtonStyles(lang) {
   if (active) active.classList.add("active");
 }
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   renderAllCards();
+//   updateButtonStyles("en");
+// });
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash.replace("#", "");
+  const validTabs = ["en", "kn", "online", "events"];
+  if (validTabs.includes(hash)) {
+    currentLang = hash;
+  }
   renderAllCards();
-  updateButtonStyles("en");
+  updateButtonStyles(currentLang);
 });

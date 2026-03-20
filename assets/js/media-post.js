@@ -642,6 +642,57 @@ function createEventCard(ev, index) {
 
 
 
+// function renderCards() {
+//   const grid = document.getElementById("media-cards-grid");
+//   const seeAllBtn = document.getElementById("media-see-all-btn");
+//   if (!grid) return;
+
+//   if (currentLang === "events") {
+//     const events = cardData.filter(c => c.lang === "events");
+//     grid.innerHTML = events.length > 0
+//       ? events.slice(0, PREVIEW_COUNT).map((ev, i) => createEventCard(ev, i)).join("")
+//       : `<div class="col-12 text-center py-5">
+//            <i class="bi bi-calendar-event" style="font-size:48px;color:var(--accent-color);opacity:0.6;"></i>
+//            <h4 style="margin-top:20px;color:var(--heading-color);">Events</h4>
+//            <p style="color:rgba(255,255,255,0.4);font-size:15px;">Will be updated soon...</p>
+//          </div>`;
+//     if (seeAllBtn) {
+//       if (events.length <= PREVIEW_COUNT) {
+//         seeAllBtn.style.display = "none";
+//       } else {
+//         seeAllBtn.style.display = "inline-flex";
+//         seeAllBtn.innerHTML = `<i class="bi bi-grid-3x3-gap me-2"></i>See All Events <span class="media-count-badge">${events.length}</span>`;
+//         seeAllBtn.onclick = () => { window.location.href = "media.html"; };
+//       }
+//     }
+//     if (typeof AOS !== "undefined") AOS.refresh();
+//     return;
+//   }
+
+//   const filtered = cardData.filter(card => card.lang === currentLang);
+//   const toShow = filtered.slice(0, PREVIEW_COUNT);
+//   grid.innerHTML = toShow.map((card, i) => createCard(card, i)).join("");
+
+//   // if (seeAllBtn) {
+//   //   if (filtered.length <= PREVIEW_COUNT) {
+//   //     seeAllBtn.style.display = "none";
+//   //   } else {
+//   //     seeAllBtn.style.display = "inline-flex";
+//   //     seeAllBtn.innerHTML = `<i class="bi bi-grid-3x3-gap me-2"></i>See All Media <span class="media-count-badge">${filtered.length}</span>`;
+//   //     seeAllBtn.onclick = () => { window.location.href = "media.html"; };
+//   //   }
+//   // }
+
+//   if (seeAllBtn) {
+//   seeAllBtn.style.display = "inline-flex";
+//   seeAllBtn.innerHTML = `<i class="bi bi-grid-3x3-gap me-2"></i>See All Events <span class="media-count-badge">${events.length}</span>`;
+//   seeAllBtn.onclick = () => { window.location.href = "media.html#events"; };
+// }
+//   if (typeof AOS !== "undefined") AOS.refresh();
+// }
+
+
+
 function renderCards() {
   const grid = document.getElementById("media-cards-grid");
   const seeAllBtn = document.getElementById("media-see-all-btn");
@@ -657,18 +708,15 @@ function renderCards() {
            <p style="color:rgba(255,255,255,0.4);font-size:15px;">Will be updated soon...</p>
          </div>`;
     if (seeAllBtn) {
-      if (events.length <= PREVIEW_COUNT) {
-        seeAllBtn.style.display = "none";
-      } else {
-        seeAllBtn.style.display = "inline-flex";
-        seeAllBtn.innerHTML = `<i class="bi bi-grid-3x3-gap me-2"></i>See All Events <span class="media-count-badge">${events.length}</span>`;
-        seeAllBtn.onclick = () => { window.location.href = "media.html"; };
-      }
+      seeAllBtn.style.display = "inline-flex";
+      seeAllBtn.innerHTML = `<i class="bi bi-grid-3x3-gap me-2"></i>See All Media <span class="media-count-badge">${events.length}</span>`;
+      seeAllBtn.onclick = () => { window.location.href = "media.html"; };
     }
     if (typeof AOS !== "undefined") AOS.refresh();
     return;
   }
 
+  // All other tabs (en, kn, online)
   const filtered = cardData.filter(card => card.lang === currentLang);
   const toShow = filtered.slice(0, PREVIEW_COUNT);
   grid.innerHTML = toShow.map((card, i) => createCard(card, i)).join("");
@@ -684,6 +732,8 @@ function renderCards() {
   }
   if (typeof AOS !== "undefined") AOS.refresh();
 }
+
+
 
 function toggleLanguage(lang) {
   currentLang = lang;

@@ -445,6 +445,73 @@ function createCard(card, index) {
 
 
 
+// function createEventCard(ev, index) {
+//   const delay = (index % 3) * 150;
+//   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
+//   const swiperId = `event-swiper-${index}`;
+
+//   return `
+//     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
+//       <div class="event-card">
+
+//         <!-- Desktop: grid strip | Mobile: swiper slider -->
+//         <div class="event-gallery-strip d-none d-md-grid">
+//           ${galleryImgs.map((src, gi) => `
+//             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
+//               <a href="${src}" target="_blank">
+//                 <img src="${src}" alt="${ev.desc}" loading="lazy"
+//                   onerror="this.src='assets/img/services/default-online.jpg'" />
+//               </a>
+//             </div>
+//           `).join("")}
+//         </div>
+
+//         <!-- Mobile swiper -->
+//         <div class="d-md-none">
+//           <div class="swiper ${swiperId}" style="height:220px; border-radius:14px 14px 0 0; position:relative; overflow:hidden; --swiper-navigation-size:18px;">
+//             <div class="swiper-wrapper">
+//               ${galleryImgs.map(src => `
+//                 <div class="swiper-slide">
+//                   <a href="${src}" target="_blank" style="display:block;height:100%;">
+//                     <img src="${src}" alt="${ev.desc}" loading="lazy"
+//                       onerror="this.src='assets/img/services/default-online.jpg'"
+//                       style="width:100%;height:100%;object-fit:cover;" />
+//                   </a>
+//                 </div>
+//               `).join("")}
+//             </div>
+//             <div class="swiper-pagination"></div>
+//             <div class="swiper-button-prev"></div>
+//             <div class="swiper-button-next"></div>
+//           </div>
+//         </div>
+
+//         <!-- Card body -->
+//         <div class="event-card-body">
+//           <span class="media-source-badge">
+//             <i class="bi bi-calendar-event me-1"></i>${ev.src}
+//           </span>
+//           <div class="event-meta-share">
+//             <div class="event-meta">
+//               <span class="event-date"><i class="bi bi-calendar3"></i> ${ev.date}</span>
+//               <span class="event-loc"><i class="bi bi-geo-alt"></i> ${ev.location}</span>
+//             </div>
+//             <button class="event-share-btn" onclick="shareEvent(event, '${ev.desc.replace(/'/g, "\\'")}', '${ev.date}', '${ev.location}')">
+//               <i class="bi bi-share"></i>
+//             </button>
+//           </div>
+//           <span class="media-source-badge">
+//             <i class="bi bi-calendar-event me-1"></i>${ev.src}
+//           </span>
+//           <h5 class="event-title">${ev.desc}</h5>
+//           <div class="event-body">${ev.body}</div>
+//         </div>
+
+//       </div>
+//     </div>
+//   `;
+// }
+
 function createEventCard(ev, index) {
   const delay = (index % 3) * 150;
   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
@@ -454,7 +521,7 @@ function createEventCard(ev, index) {
     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
       <div class="event-card">
 
-        <!-- Desktop: grid strip | Mobile: swiper slider -->
+        <!-- Desktop: grid strip -->
         <div class="event-gallery-strip d-none d-md-grid">
           ${galleryImgs.map((src, gi) => `
             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
@@ -466,7 +533,7 @@ function createEventCard(ev, index) {
           `).join("")}
         </div>
 
-        <!-- Mobile swiper -->
+        <!-- Mobile: swiper -->
         <div class="d-md-none">
           <div class="swiper ${swiperId}" style="height:220px; border-radius:14px 14px 0 0; position:relative; overflow:hidden; --swiper-navigation-size:18px;">
             <div class="swiper-wrapper">
@@ -488,87 +555,42 @@ function createEventCard(ev, index) {
 
         <!-- Card body -->
         <div class="event-card-body">
+
+          <!-- Source badge + share in one row -->
+          <div class="event-top-row">
+            <span class="media-source-badge">
+              <i class="bi bi-calendar-event me-1"></i>${ev.src}
+            </span>
+            <button class="event-share-btn" onclick="shareEvent(event, '${ev.desc.replace(/'/g, "\\'")}', '${ev.date}', '${ev.location}')">
+              <i class="bi bi-share"></i>
+            </button>
+          </div>
+
+          <!-- Date + location -->
           <div class="event-meta">
             <span class="event-date"><i class="bi bi-calendar3"></i> ${ev.date}</span>
             <span class="event-loc"><i class="bi bi-geo-alt"></i> ${ev.location}</span>
           </div>
-          <span class="media-source-badge">
-            <i class="bi bi-calendar-event me-1"></i>${ev.src}
-          </span>
+
           <h5 class="event-title">${ev.desc}</h5>
           <div class="event-body">${ev.body}</div>
-          <button class="event-share-btn" onclick="shareEvent(event, '${ev.desc.replace(/'/g, "\\'")}', '${ev.date}', '${ev.location}')">
-            <i class="bi bi-share"></i> Share
-          </button>
-        </div>
 
+        </div>
       </div>
     </div>
   `;
 }
 
 
-// function initEventSwipers() {
-//   document.querySelectorAll('.event-card .swiper').forEach(el => {
-//     if (el.swiper) return; // already initialized
-//     new Swiper(el, {
-//       loop: true,
-//       autoplay: { delay: 3000, disableOnInteraction: false },
-//       pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
-//     });
-//   });
-// }
-
-
-// function initEventSwipers() {
-//   document.querySelectorAll('.event-card .swiper').forEach(el => {
-//     if (el.swiper) return;
-//     new Swiper(el, {
-//       loop: true,
-//       autoplay: { delay: 3000, disableOnInteraction: false },
-//       navigation: {
-//         nextEl: el.querySelector('.swiper-button-next'),
-//         prevEl: el.querySelector('.swiper-button-prev'),
-//       },
-//       pagination: {
-//         el: el.querySelector('.swiper-pagination'),
-//         clickable: true,
-//       },
-//     });
-//   });
-// }
-
-
-
-
-// function initEventSwipers() {
-//   document.querySelectorAll('.event-card .swiper').forEach(el => {
-//     if (el.swiper) return;
-//     new Swiper(el, {
-//       loop: false,
-//       slidesPerView: 1,
-//       navigation: {
-//         nextEl: el.querySelector('.swiper-button-next'),
-//         prevEl: el.querySelector('.swiper-button-prev'),
-//       },
-//       pagination: {
-//         el: el.querySelector('.swiper-pagination'),
-//         clickable: true,
-//       },
-//     });
-//   });
-// }
-
-
-
 function shareEvent(e, title, date, location) {
   e.stopPropagation();
-  const text = `${title}\n📅 ${date} | 📍 ${location}\n\nRead more at: ${window.location.href}`;
+  const eventsUrl = window.location.origin + '/media.html#events';
+  const text = `${title}\n📅 ${date} | 📍 ${location}\n\nRead more at: ${eventsUrl}`;
   if (navigator.share) {
     navigator.share({
       title: title,
       text: text,
-      url: window.location.href
+      url: eventsUrl
     }).catch(() => {});
   } else {
     // Fallback: copy to clipboard

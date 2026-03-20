@@ -3654,22 +3654,27 @@ section,
 .event-card .swiper-button-next { right: 10px; }
 
 
+/* Event top row: badge + share aligned */
+.event-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
 
-/* Event share button */
 .event-share-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 12px;
-  padding: 8px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 50px;
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   background: transparent;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .event-share-btn:hover {
@@ -3679,5 +3684,5 @@ section,
 }
 
 .event-share-btn i {
-  font-size: 14px;
+  font-size: 12px;
 }

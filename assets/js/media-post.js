@@ -8,7 +8,6 @@ const cardData = [
   // ENGLISH — newspaper cutting images
   // =============================================
   
-  
   {
     img: "assets/img/services/4.jpg",
     src: "The Indian Express",

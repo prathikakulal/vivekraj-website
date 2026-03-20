@@ -420,8 +420,10 @@ function createEventCard(ev, index) {
         <div class="event-gallery-strip">
           ${galleryImgs.map((src, gi) => `
             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
-              <img src="${src}" alt="${ev.desc}" loading="lazy"
-                onerror="this.src='assets/img/services/default-online.jpg'" />
+              <a href="${src}" target="_blank">
+                <img src="${src}" alt="${ev.desc}" loading="lazy"
+                  onerror="this.src='assets/img/services/default-online.jpg'" />
+              </a>
             </div>
           `).join("")}
         </div>

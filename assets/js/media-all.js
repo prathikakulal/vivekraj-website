@@ -407,111 +407,6 @@ function createCard(card, index) {
   `;
 }
 
-
-
-
-// function createEventCard(ev, index) {
-//   const delay = (index % 3) * 150;
-//   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
-
-//   return `
-//     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
-//       <div class="event-card">
-//         <div class="event-gallery-strip">
-//           ${galleryImgs.map((src, gi) => `
-//             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
-//               <a href="${src}" target="_blank">
-//                 <img src="${src}" alt="${ev.desc}" loading="lazy"
-//                   onerror="this.src='assets/img/services/default-online.jpg'" />
-//               </a>
-//             </div>
-//           `).join("")}
-//         </div>
-//         <div class="event-card-body">
-//           <div class="event-meta">
-//             <span class="event-date"><i class="bi bi-calendar3"></i> ${ev.date}</span>
-//             <span class="event-loc"><i class="bi bi-geo-alt"></i> ${ev.location}</span>
-//           </div>
-//           <span class="media-source-badge">
-//             <i class="bi bi-calendar-event me-1"></i>${ev.src}
-//           </span>
-//           <h5 class="event-title">${ev.desc}</h5>
-//           <div class="event-body">${ev.body}</div>
-//         </div>
-//       </div>
-//     </div>
-//   `;
-// }
-
-
-
-// function createEventCard(ev, index) {
-//   const delay = (index % 3) * 150;
-//   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
-//   const swiperId = `event-swiper-${index}`;
-
-//   return `
-//     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
-//       <div class="event-card">
-
-//         <!-- Desktop: grid strip | Mobile: swiper slider -->
-//         <div class="event-gallery-strip d-none d-md-grid">
-//           ${galleryImgs.map((src, gi) => `
-//             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
-//               <a href="${src}" target="_blank">
-//                 <img src="${src}" alt="${ev.desc}" loading="lazy"
-//                   onerror="this.src='assets/img/services/default-online.jpg'" />
-//               </a>
-//             </div>
-//           `).join("")}
-//         </div>
-
-//         <!-- Mobile swiper -->
-//         <div class="d-md-none">
-//           <div class="swiper ${swiperId}" style="height:220px; border-radius:14px 14px 0 0; position:relative; overflow:hidden; --swiper-navigation-size:18px;">
-//             <div class="swiper-wrapper">
-//               ${galleryImgs.map(src => `
-//                 <div class="swiper-slide">
-//                   <a href="${src}" target="_blank" style="display:block;height:100%;">
-//                     <img src="${src}" alt="${ev.desc}" loading="lazy"
-//                       onerror="this.src='assets/img/services/default-online.jpg'"
-//                       style="width:100%;height:100%;object-fit:cover;" />
-//                   </a>
-//                 </div>
-//               `).join("")}
-//             </div>
-//             <div class="swiper-pagination"></div>
-//             <div class="swiper-button-prev"></div>
-//             <div class="swiper-button-next"></div>
-//           </div>
-//         </div>
-
-//         <!-- Card body -->
-//         <div class="event-card-body">
-//           <span class="media-source-badge">
-//             <i class="bi bi-calendar-event me-1"></i>${ev.src}
-//           </span>
-//           <div class="event-meta-share">
-//             <div class="event-meta">
-//               <span class="event-date"><i class="bi bi-calendar3"></i> ${ev.date}</span>
-//               <span class="event-loc"><i class="bi bi-geo-alt"></i> ${ev.location}</span>
-//             </div>
-//             <button class="event-share-btn" onclick="shareEvent(event, '${ev.desc.replace(/'/g, "\\'")}', '${ev.date}', '${ev.location}')">
-//               <i class="bi bi-share"></i>
-//             </button>
-//           </div>
-//           <span class="media-source-badge">
-//             <i class="bi bi-calendar-event me-1"></i>${ev.src}
-//           </span>
-//           <h5 class="event-title">${ev.desc}</h5>
-//           <div class="event-body">${ev.body}</div>
-//         </div>
-
-//       </div>
-//     </div>
-//   `;
-// }
-
 function createEventCard(ev, index) {
   const delay = (index % 3) * 150;
   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
@@ -561,7 +456,13 @@ function createEventCard(ev, index) {
             <span class="media-source-badge">
               <i class="bi bi-calendar-event me-1"></i>${ev.src}
             </span>
-            <button class="event-share-btn" onclick="shareEvent(event, '${ev.desc.replace(/'/g, "\\'")}', '${ev.date}', '${ev.location}')">
+            <button class="event-share-btn"
+              data-title="${ev.desc.replace(/"/g, '&quot;')}"
+              data-date="${ev.date}"
+              data-location="${ev.location}"
+              data-img="${galleryImgs[0]}"
+              data-desc="${ev.body.replace(/<[^>]*>/g, '').replace(/"/g, '&quot;').trim()}"
+              onclick="shareEvent(event, this)">
               <i class="bi bi-share"></i>
             </button>
           </div>
@@ -582,27 +483,138 @@ function createEventCard(ev, index) {
 }
 
 
-function shareEvent(e, title, date, location) {
+// function shareEvent(e, title, date, location) {
+//   e.stopPropagation();
+//   const eventsUrl = window.location.origin + '/media.html#events';
+//   const text = `${title}\n📅 ${date} | 📍 ${location}\n\nRead more at: ${eventsUrl}`;
+//   if (navigator.share) {
+//     navigator.share({
+//       title: title,
+//       text: text,
+//       url: eventsUrl
+//     }).catch(() => {});
+//   } else {
+//     // Fallback: copy to clipboard
+//     navigator.clipboard.writeText(text).then(() => {
+//       const btn = e.currentTarget;
+//       const original = btn.innerHTML;
+//       btn.innerHTML = '<i class="bi bi-check2"></i> Copied!';
+//       setTimeout(() => { btn.innerHTML = original; }, 2000);
+//     });
+//   }
+// }
+
+
+
+// async function shareEvent(e, title, date, location, imgSrc) {
+//   e.stopPropagation();
+//   const eventsUrl = window.location.origin + '/media.html#events';
+//   const text = `${title}\n📅 ${date} | 📍 ${location}`;
+
+//   try {
+//     // Fetch the image and convert to a File object
+//     const response = await fetch(imgSrc);
+//     const blob = await response.blob();
+//     const ext = blob.type.includes('png') ? 'png' : 'jpg';
+//     const file = new File([blob], `event.${ext}`, { type: blob.type });
+
+//     if (navigator.canShare && navigator.canShare({ files: [file] })) {
+//       await navigator.share({
+//         title: title,
+//         text: text,
+//         url: eventsUrl,
+//         files: [file]
+//       });
+//     } else {
+//       // Fallback: share without image
+//       await navigator.share({
+//         title: title,
+//         text: text,
+//         url: eventsUrl
+//       });
+//     }
+//   } catch (err) {
+//     // Final fallback: copy to clipboard
+//     navigator.clipboard.writeText(`${text}\n${eventsUrl}`).then(() => {
+//       const btn = e.currentTarget;
+//       const original = btn.innerHTML;
+//       btn.innerHTML = '<i class="bi bi-check2"></i>';
+//       setTimeout(() => { btn.innerHTML = original; }, 2000);
+//     });
+//   }
+// }
+
+
+
+// async function shareEvent(e, title, date, location, imgSrc, description) {
+//   e.stopPropagation();
+//   const eventsUrl = window.location.origin + '/media.html#events';
+//   const shareTitle = title;
+//   const shareText = `${title}\n📅 ${date} | 📍 ${location}\n\n${description}\n\n${eventsUrl}`;
+
+//   try {
+//     const response = await fetch(imgSrc);
+//     const blob = await response.blob();
+//     const ext = blob.type.includes('png') ? 'png' : 'jpg';
+//     const file = new File([blob], `event.${ext}`, { type: blob.type });
+
+//     if (navigator.canShare && navigator.canShare({ files: [file] })) {
+//       await navigator.share({
+//         title: shareTitle,
+//         text: shareText,
+//         files: [file]
+//       });
+//     } else if (navigator.share) {
+//       await navigator.share({
+//         title: shareTitle,
+//         text: shareText,
+//         url: eventsUrl
+//       });
+//     } else {
+//       throw new Error('Share not supported');
+//     }
+//   } catch (err) {
+//     navigator.clipboard.writeText(shareText).then(() => {
+//       const btn = e.currentTarget;
+//       const original = btn.innerHTML;
+//       btn.innerHTML = '<i class="bi bi-check2"></i>';
+//       setTimeout(() => { btn.innerHTML = original; }, 2000);
+//     });
+//   }
+// }
+
+
+async function shareEvent(e, btn) {
   e.stopPropagation();
+  const title    = btn.dataset.title;
+  const date     = btn.dataset.date;
+  const location = btn.dataset.location;
+  const imgSrc   = btn.dataset.img;
+  const desc     = btn.dataset.desc;
   const eventsUrl = window.location.origin + '/media.html#events';
-  const text = `${title}\n📅 ${date} | 📍 ${location}\n\nRead more at: ${eventsUrl}`;
-  if (navigator.share) {
-    navigator.share({
-      title: title,
-      text: text,
-      url: eventsUrl
-    }).catch(() => {});
-  } else {
-    // Fallback: copy to clipboard
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = e.currentTarget;
+  const shareText = `${title}\n📅 ${date} | 📍 ${location}\n\n${desc}\n\n${eventsUrl}`;
+
+  try {
+    const response = await fetch(imgSrc);
+    const blob = await response.blob();
+    const ext = blob.type.includes('png') ? 'png' : 'jpg';
+    const file = new File([blob], `event.${ext}`, { type: blob.type });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ title, text: shareText, files: [file] });
+    } else if (navigator.share) {
+      await navigator.share({ title, text: shareText, url: eventsUrl });
+    } else {
+      throw new Error('not supported');
+    }
+  } catch (err) {
+    navigator.clipboard.writeText(shareText).then(() => {
       const original = btn.innerHTML;
-      btn.innerHTML = '<i class="bi bi-check2"></i> Copied!';
+      btn.innerHTML = '<i class="bi bi-check2"></i>';
       setTimeout(() => { btn.innerHTML = original; }, 2000);
     });
   }
 }
-
 
 
 function initEventSwipers() {
@@ -652,89 +664,6 @@ function renderAllCards() {
   setTimeout(initEventSwipers, 100);
 }
 
-// ── Event card renderer ───────────────────────────────────────────────────
-// function createEventCard(ev, index) {
-//   const delay = (index % 3) * 150;
-//   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
-
-//   return `
-//     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
-//       <div class="event-card">
-
-//         <!-- Image gallery strip -->
-//         <div class="event-gallery-strip">
-//           ${galleryImgs.map((src, gi) => `
-//             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
-//               <img src="${src}" alt="${ev.desc}" loading="lazy"
-//                 onerror="this.src='assets/img/services/default-online.jpg'" />
-//             </div>
-//           `).join("")}
-//         </div>
-
-//         <!-- Card body -->
-//         <div class="event-card-body">
-//           <div class="event-meta">
-//             <span class="event-date"><i class="bi bi-calendar3"></i> ${ev.date}</span>
-//             <span class="event-loc"><i class="bi bi-geo-alt"></i> ${ev.location}</span>
-//           </div>
-//           <span class="media-source-badge">
-//             <i class="bi bi-calendar-event me-1"></i>${ev.src}
-//           </span>
-//           <h5 class="event-title">${ev.desc}</h5>
-//           <div class="event-body">${ev.body}</div>
-//         </div>
-
-//       </div>
-//     </div>
-//   `;
-// }
-
-// // ── Render ALL cards (no limit — used by media.html) ─────────────────────
-// function renderAllCards() {
-//   const grid = document.getElementById("media-cards-grid");
-//   const countEl = document.getElementById("media-total-count");
-//   if (!grid) return;
-
-//   // Events tab: coming soon
-//   // if (currentLang === "events") {
-//   //   grid.innerHTML = `
-//   //     <div class="col-12 text-center py-5" data-aos="fade-up">
-//   //       <i class="bi bi-calendar-event" style="font-size: 48px; color: var(--accent-color); opacity: 0.6;"></i>
-//   //       <h4 style="margin-top: 20px; color: var(--heading-color); font-weight: 600;">Events</h4>
-//   //       <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-top: 8px;">Will be updated soon...</p>
-//   //     </div>
-//   //   `;
-//   //   if (countEl) countEl.textContent = "0";
-//   //   if (typeof AOS !== "undefined") AOS.refresh();
-//   //   return;
-//   // }
-
-
-//   // Events tab: render event cards
-// if (currentLang === "events") {
-//   const events = cardData.filter(c => c.lang === "events");
-//   if (countEl) countEl.textContent = events.length;
-//   if (seeAllBtn) {
-//     if (events.length === 0) {
-//       seeAllBtn.style.display = "none";
-//     } else {
-//       seeAllBtn.style.display = "inline-flex";
-//       seeAllBtn.innerHTML = `<i class="bi bi-grid-3x3-gap me-2"></i>See All Events <span class="media-count-badge">${events.length}</span>`;
-//       seeAllBtn.onclick = () => { window.location.href = "media.html"; };
-//     }
-//   }
-//   grid.innerHTML = events.map((ev, i) => createEventCard(ev, i)).join("");
-//   if (typeof AOS !== "undefined") AOS.refresh();
-//   return;
-// }
-
-//   const filtered = cardData.filter(card => card.lang === currentLang);
-//   if (countEl) countEl.textContent = filtered.length;
-
-//   grid.innerHTML = filtered.map((card, i) => createCard(card, i)).join("");
-
-//   if (typeof AOS !== "undefined") AOS.refresh();
-// }
 
 function toggleLanguage(lang) {
   currentLang = lang;

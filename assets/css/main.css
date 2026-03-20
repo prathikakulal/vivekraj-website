@@ -3630,3 +3630,25 @@ section,
 .event-card .swiper-pagination-bullet-active {
   background: var(--accent-color);
 }
+
+
+/* Event swiper mobile arrows */
+.event-card .swiper-button-prev,
+.event-card .swiper-button-next {
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 50%;
+  color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.event-card .swiper-button-prev::after,
+.event-card .swiper-button-next::after {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.event-card .swiper-button-prev { left: 10px; }
+.event-card .swiper-button-next { right: 10px; }

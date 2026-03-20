@@ -548,22 +548,81 @@ function createCard(card, index) {
 
 
 // ── Event card renderer ───────────────────────────────────────────────────
+// function createEventCard(ev, index) {
+//   const delay = (index % 3) * 150;
+//   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
+
+//   return `
+//     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
+//       <div class="event-card">
+
+//         <!-- Image gallery strip -->
+//         <div class="event-gallery-strip">
+//           ${galleryImgs.map((src, gi) => `
+//             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
+//               <img src="${src}" alt="${ev.desc}" loading="lazy"
+//                 onerror="this.src='assets/img/services/default-online.jpg'" />
+//             </div>
+//           `).join("")}
+//         </div>
+
+//         <!-- Card body -->
+//         <div class="event-card-body">
+//           <div class="event-meta">
+//             <span class="event-date"><i class="bi bi-calendar3"></i> ${ev.date}</span>
+//             <span class="event-loc"><i class="bi bi-geo-alt"></i> ${ev.location}</span>
+//           </div>
+//           <span class="media-source-badge">
+//             <i class="bi bi-calendar-event me-1"></i>${ev.src}
+//           </span>
+//           <h5 class="event-title">${ev.desc}</h5>
+//           <div class="event-body">${ev.body}</div>
+//         </div>
+
+//       </div>
+//     </div>
+//   `;
+// }
+
+
+
 function createEventCard(ev, index) {
   const delay = (index % 3) * 150;
   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
+  const swiperId = `event-swiper-${index}`;
 
   return `
     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
       <div class="event-card">
 
-        <!-- Image gallery strip -->
-        <div class="event-gallery-strip">
+        <!-- Desktop: grid strip | Mobile: swiper slider -->
+        <div class="event-gallery-strip d-none d-md-grid">
           ${galleryImgs.map((src, gi) => `
             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
-              <img src="${src}" alt="${ev.desc}" loading="lazy"
-                onerror="this.src='assets/img/services/default-online.jpg'" />
+              <a href="${src}" target="_blank">
+                <img src="${src}" alt="${ev.desc}" loading="lazy"
+                  onerror="this.src='assets/img/services/default-online.jpg'" />
+              </a>
             </div>
           `).join("")}
+        </div>
+
+        <!-- Mobile swiper -->
+        <div class="d-md-none">
+          <div class="swiper ${swiperId}" style="height:220px; border-radius:14px 14px 0 0; overflow:hidden;">
+            <div class="swiper-wrapper">
+              ${galleryImgs.map(src => `
+                <div class="swiper-slide">
+                  <a href="${src}" target="_blank" style="display:block;height:100%;">
+                    <img src="${src}" alt="${ev.desc}" loading="lazy"
+                      onerror="this.src='assets/img/services/default-online.jpg'"
+                      style="width:100%;height:100%;object-fit:cover;" />
+                  </a>
+                </div>
+              `).join("")}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
         </div>
 
         <!-- Card body -->
@@ -582,6 +641,19 @@ function createEventCard(ev, index) {
       </div>
     </div>
   `;
+}
+
+
+
+function initEventSwipers() {
+  document.querySelectorAll('.event-card .swiper').forEach(el => {
+    if (el.swiper) return; // already initialized
+    new Swiper(el, {
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+    });
+  });
 }
 
 // ── Render with preview cap (used by index.html) ──────────────────────────
@@ -731,6 +803,7 @@ function renderCards() {
     }
   }
   if (typeof AOS !== "undefined") AOS.refresh();
+  setTimeout(initEventSwipers, 100);
 }
 
 

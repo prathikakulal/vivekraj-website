@@ -3619,3 +3619,14 @@ section,
   }
 }
 
+
+
+/* Event card mobile swiper pagination */
+.event-card .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+.event-card .swiper-pagination-bullet-active {
+  background: var(--accent-color);
+}

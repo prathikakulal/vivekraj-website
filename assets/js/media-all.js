@@ -648,7 +648,62 @@ const cardData = [
     desc: "Vivek Raj uses AI hydroponics to boost yields threefold in modern farming.",
     lang: "online",
     link: "https://newsfirstlive.com/technology/vivek-raj-invests-rs-214-crore-in-ai-based-hydroponic-farming-ai-increases-yields-threefold-11121357"
-  }
+  },
+
+  // =============================================
+// EVENTS
+// =============================================
+{
+  img: "assets/img/services/47.jpeg",
+  src: "Modi Prix Galien India 2026",
+  desc: "Vivek Raj Showcases AI Driven Agriculture at Modi Prix Galien India 2026",
+  lang: "events",
+  gallery: [
+    "assets/img/services/47.jpeg",
+    "assets/img/services/48.jpeg",
+    "assets/img/services/49.jpeg"
+  ],
+  date: "March 19, 2026",
+  location: "Taj Palace, New Delhi",
+  body: `<p>Vivek Raj, Founder and CEO of Panama Corporation, presented a strong case for the transformation of agriculture through artificial intelligence at the Modi Prix Galien India 2026 held at Taj Palace, New Delhi.</p>
+  <p>He was part of Panel 1 titled <em>AI in Action — Building India's Scalable Trusted Health Innovation Ecosystem</em>, alongside Dr Anurag Agarwal, Dr Subi Chaturvedi, Dr Kshitij Jadhav, and Umakant Soni. He also had an insightful discussion with Satish Kumar Modi, Chair of the Modi Galien Foundation India.</p>
+  <p>Vivek Raj highlighted how agriculture is moving from uncertainty to predictability through intelligence, data, and controlled environments. He noted that AI driven systems — sensors, predictive models, and automated controls — allow farms to respond in real time to plant needs, environmental shifts, and disease risks.</p>
+  <p>He also spoke about building self sustained agricultural systems integrating solar energy, biogas, and in house AI infrastructure, reducing dependence on external supply chains. He raised the limited focus of CSR initiatives on agriculture and called for enabling intelligent farming systems as a national priority.</p>`
+},
+{
+  img: "assets/img/services/50.jpeg",
+  src: "India AI Impact Summit 2026",
+  desc: "Vivek Raj Speaks on Responsible AI and Agri Transformation at India AI Impact Summit 2026",
+  lang: "events",
+  gallery: [
+    "assets/img/services/50.jpeg",
+    "assets/img/services/51.jpeg",
+    "assets/img/services/52.jpeg"
+  ],
+  date: "February 16, 2026",
+  location: "Bharat Mandapam, New Delhi",
+  body: `<p>Vivek Raj, Founder and CEO of Panama Corporation, was a featured speaker at the India AI Impact Summit 2026 held at Bharat Mandapam, New Delhi, organised under the IndiaAI Mission.</p>
+  <p>Speaking in a session on <em>Responsible AI for Bharat — Building Trust, Safety, and Global Leadership</em>, he emphasised the need to move beyond theory and focus on real world deployment of AI in critical sectors such as agriculture, sustainability, and bio resource systems.</p>
+  <p>He explained how intelligent farming systems powered by data, sensors, and predictive models can optimise resources, improve yields, and reduce risk. He stressed that responsible AI must translate into systems that are reliable, self sustained, and capable of consistent performance at scale.</p>
+  <p>The session also featured Prof Nitin Saxena, Ankush Sabharwal, Ravi Arora, Dr Subi Chaturvedi, Arvind Kumar, and Dr Tripta Thakur.</p>`
+},
+{
+  img: "assets/img/services/53.jpeg",
+  src: "CII Global Summit 2025",
+  desc: "Vivek Raj Speaks on Deep Tech, IP and AI Driven Agriculture at CII Global Summit 2025",
+  lang: "events",
+  gallery: [
+    "assets/img/services/53.jpeg",
+    "assets/img/services/54.jpeg",
+    "assets/img/services/55.jpeg"
+  ],
+  date: "December 16, 2025",
+  location: "New Delhi",
+  body: `<p>Vivek Raj, Chairman and CEO of Panama Corporation, participated as a speaker at the Global Summit on Technology, R&D and Intellectual Property 2025, organised by the Confederation of Indian Industry.</p>
+  <p>The summit was themed <em>From Dependence to Dominance — Research, Deep Tech and IP for AtmaNirbhar Bharat</em>. Vivek Raj highlighted the critical role of artificial intelligence, deep technology, and intellectual property in building resilient and future ready sectors.</p>
+  <p>He spoke about the transformation of agriculture through AI enabled and climate resilient systems — how intelligent farming models can reduce uncertainty, optimise resources, and improve productivity. He also stressed the importance of IP frameworks that protect innovation and enable large scale adoption.</p>
+  <p>His participation reflected a broader vision of leveraging deep tech and AI to build self reliant, sustainable, and globally competitive systems, particularly in sectors that directly influence economic stability and national growth.</p>`
+}
 ];
 
 
@@ -691,33 +746,148 @@ function createCard(card, index) {
   `;
 }
 
-// ── Render ALL cards (no limit — used by media.html) ─────────────────────
+
+
+
+function createEventCard(ev, index) {
+  const delay = (index % 3) * 150;
+  const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
+
+  return `
+    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
+      <div class="event-card">
+        <div class="event-gallery-strip">
+          ${galleryImgs.map((src, gi) => `
+            <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
+              <img src="${src}" alt="${ev.desc}" loading="lazy"
+                onerror="this.src='assets/img/services/default-online.jpg'" />
+            </div>
+          `).join("")}
+        </div>
+        <div class="event-card-body">
+          <div class="event-meta">
+            <span class="event-date"><i class="bi bi-calendar3"></i> ${ev.date}</span>
+            <span class="event-loc"><i class="bi bi-geo-alt"></i> ${ev.location}</span>
+          </div>
+          <span class="media-source-badge">
+            <i class="bi bi-calendar-event me-1"></i>${ev.src}
+          </span>
+          <h5 class="event-title">${ev.desc}</h5>
+          <div class="event-body">${ev.body}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderAllCards() {
   const grid = document.getElementById("media-cards-grid");
   const countEl = document.getElementById("media-total-count");
   if (!grid) return;
 
-  // Events tab: coming soon
   if (currentLang === "events") {
-    grid.innerHTML = `
-      <div class="col-12 text-center py-5" data-aos="fade-up">
-        <i class="bi bi-calendar-event" style="font-size: 48px; color: var(--accent-color); opacity: 0.6;"></i>
-        <h4 style="margin-top: 20px; color: var(--heading-color); font-weight: 600;">Events</h4>
-        <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-top: 8px;">Will be updated soon...</p>
-      </div>
-    `;
-    if (countEl) countEl.textContent = "0";
+    const events = cardData.filter(c => c.lang === "events");
+    if (countEl) countEl.textContent = events.length;
+    grid.innerHTML = events.length > 0
+      ? events.map((ev, i) => createEventCard(ev, i)).join("")
+      : `<div class="col-12 text-center py-5">
+           <i class="bi bi-calendar-event" style="font-size:48px;color:var(--accent-color);opacity:0.6;"></i>
+           <h4 style="margin-top:20px;color:var(--heading-color);font-weight:600;">Events</h4>
+           <p style="color:rgba(255,255,255,0.4);font-size:15px;margin-top:8px;">Will be updated soon...</p>
+         </div>`;
     if (typeof AOS !== "undefined") AOS.refresh();
     return;
   }
 
   const filtered = cardData.filter(card => card.lang === currentLang);
   if (countEl) countEl.textContent = filtered.length;
-
   grid.innerHTML = filtered.map((card, i) => createCard(card, i)).join("");
-
   if (typeof AOS !== "undefined") AOS.refresh();
 }
+
+// ── Event card renderer ───────────────────────────────────────────────────
+// function createEventCard(ev, index) {
+//   const delay = (index % 3) * 150;
+//   const galleryImgs = (ev.gallery || [ev.img]).slice(0, 3);
+
+//   return `
+//     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
+//       <div class="event-card">
+
+//         <!-- Image gallery strip -->
+//         <div class="event-gallery-strip">
+//           ${galleryImgs.map((src, gi) => `
+//             <div class="event-gallery-thumb ${gi === 0 ? 'main-thumb' : 'side-thumb'}">
+//               <img src="${src}" alt="${ev.desc}" loading="lazy"
+//                 onerror="this.src='assets/img/services/default-online.jpg'" />
+//             </div>
+//           `).join("")}
+//         </div>
+
+//         <!-- Card body -->
+//         <div class="event-card-body">
+//           <div class="event-meta">
+//             <span class="event-date"><i class="bi bi-calendar3"></i> ${ev.date}</span>
+//             <span class="event-loc"><i class="bi bi-geo-alt"></i> ${ev.location}</span>
+//           </div>
+//           <span class="media-source-badge">
+//             <i class="bi bi-calendar-event me-1"></i>${ev.src}
+//           </span>
+//           <h5 class="event-title">${ev.desc}</h5>
+//           <div class="event-body">${ev.body}</div>
+//         </div>
+
+//       </div>
+//     </div>
+//   `;
+// }
+
+// // ── Render ALL cards (no limit — used by media.html) ─────────────────────
+// function renderAllCards() {
+//   const grid = document.getElementById("media-cards-grid");
+//   const countEl = document.getElementById("media-total-count");
+//   if (!grid) return;
+
+//   // Events tab: coming soon
+//   // if (currentLang === "events") {
+//   //   grid.innerHTML = `
+//   //     <div class="col-12 text-center py-5" data-aos="fade-up">
+//   //       <i class="bi bi-calendar-event" style="font-size: 48px; color: var(--accent-color); opacity: 0.6;"></i>
+//   //       <h4 style="margin-top: 20px; color: var(--heading-color); font-weight: 600;">Events</h4>
+//   //       <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-top: 8px;">Will be updated soon...</p>
+//   //     </div>
+//   //   `;
+//   //   if (countEl) countEl.textContent = "0";
+//   //   if (typeof AOS !== "undefined") AOS.refresh();
+//   //   return;
+//   // }
+
+
+//   // Events tab: render event cards
+// if (currentLang === "events") {
+//   const events = cardData.filter(c => c.lang === "events");
+//   if (countEl) countEl.textContent = events.length;
+//   if (seeAllBtn) {
+//     if (events.length === 0) {
+//       seeAllBtn.style.display = "none";
+//     } else {
+//       seeAllBtn.style.display = "inline-flex";
+//       seeAllBtn.innerHTML = `<i class="bi bi-grid-3x3-gap me-2"></i>See All Events <span class="media-count-badge">${events.length}</span>`;
+//       seeAllBtn.onclick = () => { window.location.href = "media.html"; };
+//     }
+//   }
+//   grid.innerHTML = events.map((ev, i) => createEventCard(ev, i)).join("");
+//   if (typeof AOS !== "undefined") AOS.refresh();
+//   return;
+// }
+
+//   const filtered = cardData.filter(card => card.lang === currentLang);
+//   if (countEl) countEl.textContent = filtered.length;
+
+//   grid.innerHTML = filtered.map((card, i) => createCard(card, i)).join("");
+
+//   if (typeof AOS !== "undefined") AOS.refresh();
+// }
 
 function toggleLanguage(lang) {
   currentLang = lang;

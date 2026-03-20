@@ -679,23 +679,48 @@ function createEventCard(ev, index) {
 
 
 
+// function initEventSwipers() {
+//   document.querySelectorAll('.event-card .swiper').forEach(el => {
+//     if (el.swiper) return;
+//     new Swiper(el, {
+//       loop: false,
+//       slidesPerView: 1,
+//       navigation: {
+//         nextEl: el.querySelector('.swiper-button-next'),
+//         prevEl: el.querySelector('.swiper-button-prev'),
+//       },
+//       pagination: {
+//         el: el.querySelector('.swiper-pagination'),
+//         clickable: true,
+//       },
+//     });
+//   });
+// }
+
+
+
 function initEventSwipers() {
   document.querySelectorAll('.event-card .swiper').forEach(el => {
-    if (el.swiper) return;
+    if (el.classList.contains('swiper-initialized')) return;
     new Swiper(el, {
-      loop: false,
       slidesPerView: 1,
+      loop: false,
+      speed: 400,
       navigation: {
-        nextEl: el.querySelector('.swiper-button-next'),
-        prevEl: el.querySelector('.swiper-button-prev'),
+        nextEl: el.parentElement.querySelector('.swiper-button-next'),
+        prevEl: el.parentElement.querySelector('.swiper-button-prev'),
       },
       pagination: {
-        el: el.querySelector('.swiper-pagination'),
+        el: el.parentElement.querySelector('.swiper-pagination'),
         clickable: true,
+        dynamicBullets: true,
       },
     });
   });
 }
+
+
+
 // ── Render with preview cap (used by index.html) ──────────────────────────
 // function renderCards() {
 //   const grid = document.getElementById("media-cards-grid");
@@ -843,7 +868,7 @@ function renderCards() {
     }
   }
   if (typeof AOS !== "undefined") AOS.refresh();
-  setTimeout(initEventSwipers, 100);
+  setTimeout(initEventSwipers, 500);
 }
 
 

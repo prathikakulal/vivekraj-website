@@ -609,7 +609,7 @@ function createEventCard(ev, index) {
 
         <!-- Mobile swiper -->
         <div class="d-md-none">
-          <div class="swiper ${swiperId}" style="height:220px; border-radius:14px 14px 0 0; overflow:hidden; position:relative;">
+          <div class="swiper ${swiperId}" style="height:220px; border-radius:14px 14px 0 0; position:relative; overflow:hidden; --swiper-navigation-size:18px;">
             <div class="swiper-wrapper">
               ${galleryImgs.map(src => `
                 <div class="swiper-slide">
@@ -659,12 +659,32 @@ function createEventCard(ev, index) {
 // }
 
 
+// function initEventSwipers() {
+//   document.querySelectorAll('.event-card .swiper').forEach(el => {
+//     if (el.swiper) return;
+//     new Swiper(el, {
+//       loop: true,
+//       autoplay: { delay: 3000, disableOnInteraction: false },
+//       navigation: {
+//         nextEl: el.querySelector('.swiper-button-next'),
+//         prevEl: el.querySelector('.swiper-button-prev'),
+//       },
+//       pagination: {
+//         el: el.querySelector('.swiper-pagination'),
+//         clickable: true,
+//       },
+//     });
+//   });
+// }
+
+
+
 function initEventSwipers() {
   document.querySelectorAll('.event-card .swiper').forEach(el => {
     if (el.swiper) return;
     new Swiper(el, {
-      loop: true,
-      autoplay: { delay: 3000, disableOnInteraction: false },
+      loop: false,
+      slidesPerView: 1,
       navigation: {
         nextEl: el.querySelector('.swiper-button-next'),
         prevEl: el.querySelector('.swiper-button-prev'),
@@ -676,7 +696,6 @@ function initEventSwipers() {
     });
   });
 }
-
 // ── Render with preview cap (used by index.html) ──────────────────────────
 // function renderCards() {
 //   const grid = document.getElementById("media-cards-grid");

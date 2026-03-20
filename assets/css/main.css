@@ -3652,3 +3652,32 @@ section,
 
 .event-card .swiper-button-prev { left: 10px; }
 .event-card .swiper-button-next { right: 10px; }
+
+
+
+/* Event share button */
+.event-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.event-share-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: rgba(236, 236, 236, 0.06);
+}
+
+.event-share-btn i {
+  font-size: 14px;
+}

@@ -497,6 +497,9 @@ function createEventCard(ev, index) {
           </span>
           <h5 class="event-title">${ev.desc}</h5>
           <div class="event-body">${ev.body}</div>
+          <button class="event-share-btn" onclick="shareEvent(event, '${ev.desc.replace(/'/g, "\\'")}', '${ev.date}', '${ev.location}')">
+            <i class="bi bi-share"></i> Share
+          </button>
         </div>
 
       </div>
@@ -555,6 +558,29 @@ function createEventCard(ev, index) {
 //     });
 //   });
 // }
+
+
+
+function shareEvent(e, title, date, location) {
+  e.stopPropagation();
+  const text = `${title}\n📅 ${date} | 📍 ${location}\n\nRead more at: ${window.location.href}`;
+  if (navigator.share) {
+    navigator.share({
+      title: title,
+      text: text,
+      url: window.location.href
+    }).catch(() => {});
+  } else {
+    // Fallback: copy to clipboard
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = e.currentTarget;
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="bi bi-check2"></i> Copied!';
+      setTimeout(() => { btn.innerHTML = original; }, 2000);
+    });
+  }
+}
+
 
 
 function initEventSwipers() {

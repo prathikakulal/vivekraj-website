@@ -3546,6 +3546,7 @@ section,
   box-shadow: 0 16px 40px rgba(0,0,0,0.4);
 }
 
+
 /*--------------------------------------------------------------
 # Event Cards - Homepage (Gallery Strip + Card Layout Fix)
 --------------------------------------------------------------*/
@@ -3717,13 +3718,13 @@ section,
   font-size: 13.5px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.55);
-  flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 0;
 }
 
 .event-body p {
   margin: 0;
+}
+
+.event-body p + p::before {
+  content: " ";
 }

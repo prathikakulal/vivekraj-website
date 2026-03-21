@@ -3478,35 +3478,163 @@ section,
 /*--------------------------------------------------------------
 # Event Cards
 --------------------------------------------------------------*/
-.event-card {
-  background: var(--surface-color);
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+/* ── Add these rules to your existing CSS ── */
+
+/* Top row: badge + share button side by side */
+.event-top-row {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
-.event-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.45);
-  border-color: rgba(236, 236, 236, 0.18);
+/* Share button on homepage event cards */
+.event-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.event-share-btn:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: rgba(201,168,76,0.4);
+  color: #c9a84c;
 }
 
-/* ── Gallery strip ── */
+/* "Read More" link at bottom of homepage event card */
+.event-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-color, #c9a84c);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: gap 0.2s, opacity 0.2s;
+}
+.event-read-more:hover {
+  gap: 10px;
+  opacity: 0.8;
+}
+.event-read-more i {
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+.event-read-more:hover i {
+  transform: translateX(3px);
+}
+
+/* Make the entire event card show pointer cursor */
+.event-card[onclick] {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.event-card[onclick]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+
+/*--------------------------------------------------------------
+# Event Cards - Homepage (Gallery Strip + Card Layout Fix)
+--------------------------------------------------------------*/
+
+/* Top row: badge + share button side by side */
+.event-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* Share button on homepage event cards */
+.event-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.event-share-btn:hover {
+  background: rgba(236, 236, 236, 0.12);
+  border-color: rgba(236, 236, 236, 0.4);
+  color: var(--accent-color);
+}
+
+/* "Read More" link at bottom of homepage event card */
+.event-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-color);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: gap 0.2s, opacity 0.2s;
+}
+.event-read-more:hover {
+  gap: 10px;
+  opacity: 0.75;
+  color: var(--accent-color);
+}
+.event-read-more i {
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+.event-read-more:hover i {
+  transform: translateX(3px);
+}
+
+/* Clickable event card hover lift */
+.event-card[onclick] {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.event-card[onclick]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+/*--------------------------------------------------------------
+# Event Card - Gallery Strip (Desktop 3-image layout)
+--------------------------------------------------------------*/
 .event-gallery-strip {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 110px 110px;
+  grid-template-rows: 120px 120px;
   gap: 3px;
-  height: 223px;
+  height: 240px;
   overflow: hidden;
+  border-radius: 12px 12px 0 0;
 }
 
 .event-gallery-thumb {
   overflow: hidden;
+  position: relative;
+  min-height: 0;
+  min-width: 0;
 }
 
 .event-gallery-thumb img {
@@ -3517,172 +3645,85 @@ section,
   transition: transform 0.4s ease;
 }
 
-.event-card:hover .event-gallery-thumb img {
-  transform: scale(1.06);
+.event-gallery-thumb:hover img {
+  transform: scale(1.05);
 }
 
-.main-thumb {
-  grid-row: 1 / 3; /* spans both rows on the left */
+/* Main (large) image spans both rows on the left */
+.event-gallery-thumb.main-thumb {
+  grid-column: 1;
+  grid-row: 1 / 3;
 }
 
-.side-thumb {
-  /* naturally fills the right column rows */
+/* Side images stack on the right */
+.event-gallery-thumb.side-thumb {
+  grid-column: 2;
 }
 
-/* ── Card body ── */
-.event-card-body {
-  padding: 20px 22px 24px;
+/*--------------------------------------------------------------
+# Event Card - Body
+--------------------------------------------------------------*/
+.event-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  flex: 1;
+  height: 100%;
+  position: relative;
 }
 
-/* ── Meta row ── */
+.event-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .event-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-bottom: 10px;
 }
 
 .event-date,
 .event-loc {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.45);
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .event-date i,
 .event-loc i {
   font-size: 12px;
   color: var(--accent-color);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-/* ── Title ── */
 .event-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.45;
+  margin-bottom: 10px;
   color: var(--heading-color);
-  margin: 0;
+  font-family: var(--heading-font);
 }
 
-/* ── Body text ── */
 .event-body {
-  font-size: 13px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 2px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .event-body p {
-  margin-bottom: 10px;
-}
-
-.event-body p:last-child {
-  margin-bottom: 0;
-}
-
-.event-body em {
-  color: rgba(255, 255, 255, 0.65);
-  font-style: italic;
-}
-
-/* ── Responsive ── */
-@media (max-width: 576px) {
-  .event-gallery-strip {
-    grid-template-columns: 2fr 1fr;
-    height: 190px;
-  }
-
-  .event-gallery-strip .side-thumb:last-child {
-    display: none; /* hide 3rd thumb on very small screens, keep layout clean */
-  }
-
-  .event-gallery-strip {
-    grid-template-columns: 1fr;
-    grid-template-rows: 200px;
-    height: 200px;
-  }
-
-  .main-thumb {
-    grid-row: 1;
-  }
-
-  .side-thumb {
-    display: none;
-  }
-}
-
-
-
-/* Event card mobile swiper pagination */
-.event-card .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 1;
-}
-
-.event-card .swiper-pagination-bullet-active {
-  background: var(--accent-color);
-}
-
-
-/* Event swiper mobile arrows */
-.event-card .swiper-button-prev,
-.event-card .swiper-button-next {
-  width: 32px;
-  height: 32px;
-  background: rgba(0, 0, 0, 0.45);
-  border-radius: 50%;
-  color: #fff;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.event-card .swiper-button-prev::after,
-.event-card .swiper-button-next::after {
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.event-card .swiper-button-prev { left: 10px; }
-.event-card .swiper-button-next { right: 10px; }
-
-
-/* Event top row: badge + share aligned */
-.event-top-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.event-share-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: transparent;
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.event-share-btn:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-  background: rgba(236, 236, 236, 0.06);
-}
-
-.event-share-btn i {
-  font-size: 12px;
+  margin: 0;
 }

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modi Prix Galien India 2026 — Vivek Raj</title>
+  <meta name="description" content="Vivek Raj Showcases AI Driven Agriculture at Modi Prix Galien India 2026, Taj Palace, New Delhi.">
+
+  <!-- Fonts — same as website -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Ubuntu:wght@400;600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <style>
+    /* ── Site CSS Variables (mirrors the website) ── */
+    :root {
+      --default-font: "Roboto", system-ui, sans-serif;
+      --heading-font: "Ubuntu", sans-serif;
+      --nav-font: "Nunito", sans-serif;
+
+      --background-color: #1f1f1f;
+      --default-color: #ffffff;
+      --heading-color: #ffffff;
+      --accent-color: #ececec;
+      --surface-color: #232323;
+      --contrast-color: #310606;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--default-color);
+      font-family: var(--default-font);
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent-color); text-decoration: none; transition: 0.3s; }
+    a:hover { color: rgba(236,236,236,0.75); }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--heading-color);
+      font-family: var(--heading-font);
+    }
+
+    /* ── TOPBAR ── */
+    .event-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(31, 31, 31, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .event-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--accent-color);
+      font-family: var(--nav-font);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .event-back-btn:hover { opacity: 0.7; color: var(--accent-color); }
+    .event-topbar-label {
+      margin-left: auto;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      font-family: var(--nav-font);
+    }
+
+    /* ── HERO SLIDER ── */
+    .event-hero-wrap {
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    .hero-swiper .swiper-slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-swiper .swiper-button-prev,
+    .hero-swiper .swiper-button-next {
+      color: var(--accent-color);
+      background: rgba(0,0,0,0.45);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      --swiper-navigation-size: 16px;
+    }
+    .hero-swiper .swiper-button-prev:hover,
+    .hero-swiper .swiper-button-next:hover {
+      background: rgba(0,0,0,0.75);
+    }
+    .hero-swiper .swiper-pagination-bullet {
+      background: var(--accent-color);
+      opacity: 0.45;
+    }
+    .hero-swiper .swiper-pagination-bullet-active { opacity: 1; }
+
+    /* Thumbnail strip */
+    .thumb-strip {
+      background: var(--surface-color);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 10px 20px;
+    }
+    .thumb-swiper .swiper-slide {
+      width: 80px !important;
+      height: 54px;
+      border-radius: 6px;
+      overflow: hidden;
+      opacity: 0.45;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: opacity 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .thumb-swiper .swiper-slide-thumb-active {
+      opacity: 1;
+      border-color: var(--accent-color);
+    }
+    .thumb-swiper .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── CONTENT ── */
+    .event-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
+
+    /* Badges */
+    .event-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .event-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(236,236,236,0.08);
+      border: 1px solid rgba(236,236,236,0.2);
+      color: var(--accent-color);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-family: var(--nav-font);
+    }
+
+    /* Title */
+    .event-page-title {
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 700;
+      color: var(--heading-color);
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    /* Meta row */
+    .event-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .event-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      font-family: var(--nav-font);
+    }
+    .event-meta-item i {
+      color: var(--accent-color);
+      font-size: 15px;
+      opacity: 0.8;
+    }
+
+    /* Body text */
+    .event-page-body p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.78;
+      margin-bottom: 18px;
+    }
+    .event-page-body p:last-child { margin-bottom: 0; }
+    .event-page-body em {
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    /* Share section */
+    .event-share-row {
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .event-share-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--nav-font);
+    }
+    .event-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--nav-font);
+      border-radius: 50px;
+      border: 2px solid rgba(236,236,236,0.3);
+      background: transparent;
+      color: var(--default-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .event-action-btn:hover {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      color: #1a1a1a;
+    }
+
+    /* All events button */
+    .event-all-btn-wrap {
+      margin-top: 52px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .hero-swiper .swiper-slide img { height: 240px; }
+      .event-content { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <nav class="event-topbar">
+    <a href="index.html#services" class="event-back-btn">
+      <i class="bi bi-arrow-left"></i> Back
+    </a>
+    <span class="event-topbar-label">Events / Modi Prix Galien India 2026</span>
+  </nav>
+
+  <!-- HERO SLIDER -->
+  <div class="event-hero-wrap">
+    <div class="swiper hero-swiper" id="heroSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/img/services/47.jpeg" alt="Modi Prix Galien India 2026" onerror="this.src='assets/img/services/default-online.jpg'">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/services/48.jpeg" alt="Modi Prix Galien India 2026" onerror="this.src='assets/img/services/default-online.jpg'">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/services/49.jpeg" alt="Modi Prix Galien India 2026" onerror="this.src='assets/img/services/default-online.jpg'">
+        </div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- THUMBNAIL STRIP -->
+  <div class="thumb-strip">
+    <div class="swiper thumb-swiper" id="thumbSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/img/services/47.jpeg" alt="" onerror="this.src='assets/img/services/default-online.jpg'">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/services/48.jpeg" alt="" onerror="this.src='assets/img/services/default-online.jpg'">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/services/49.jpeg" alt="" onerror="this.src='assets/img/services/default-online.jpg'">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="event-content">
+
+    <div class="event-badge-row">
+      <span class="event-badge"><i class="bi bi-calendar-event"></i> Event</span>
+      <span class="event-badge"><i class="bi bi-geo-alt"></i> Taj Palace, New Delhi</span>
+    </div>
+
+    <h1 class="event-page-title">Vivek Raj Showcases AI Driven Agriculture at Modi Prix Galien India 2026</h1>
+
+    <div class="event-meta-row">
+      <div class="event-meta-item">
+        <i class="bi bi-calendar3"></i>
+        <span>March 19, 2026</span>
+      </div>
+      <div class="event-meta-item">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span>Taj Palace, New Delhi</span>
+      </div>
+      <div class="event-meta-item">
+        <i class="bi bi-person-badge"></i>
+        <span>Modi Prix Galien India 2026</span>
+      </div>
+    </div>
+
+    <div class="event-page-body">
+      <p>Vivek Raj, Founder and CEO of Panama Corporation, presented a strong case for the transformation of agriculture through artificial intelligence at the Modi Prix Galien India 2026 held at Taj Palace, New Delhi.</p>
+      <p>He was part of Panel 1 titled <em>AI in Action — Building India's Scalable Trusted Health Innovation Ecosystem</em>, alongside Dr Anurag Agarwal, Dr Subi Chaturvedi, Dr Kshitij Jadhav, and Umakant Soni. He also had an insightful discussion with Satish Kumar Modi, Chair of the Modi Galien Foundation India.</p>
+      <p>Vivek Raj highlighted how agriculture is moving from uncertainty to predictability through intelligence, data, and controlled environments. He noted that AI driven systems — sensors, predictive models, and automated controls — allow farms to respond in real time to plant needs, environmental shifts, and disease risks.</p>
+      <p>He also spoke about building self sustained agricultural systems integrating solar energy, biogas, and in house AI infrastructure, reducing dependence on external supply chains. He raised the limited focus of CSR initiatives on agriculture and called for enabling intelligent farming systems as a national priority.</p>
+    </div>
+
+    <!-- Share -->
+    <div class="event-share-row">
+      <span class="event-share-label">Share</span>
+      <button class="event-action-btn" onclick="shareThis()">
+        <i class="bi bi-share"></i> Share Event
+      </button>
+      <button class="event-action-btn" onclick="copyLink()">
+        <i class="bi bi-link-45deg"></i> <span id="copy-label">Copy Link</span>
+      </button>
+    </div>
+
+    <!-- All Events -->
+    <div class="event-all-btn-wrap">
+      <a href="media.html#events" class="event-action-btn">
+        <i class="bi bi-grid-3x3-gap"></i> All Events
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const thumbSwiperInst = new Swiper('#thumbSwiper', {
+      spaceBetween: 8,
+      slidesPerView: 'auto',
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+
+    const heroSwiperInst = new Swiper('#heroSwiper', {
+      loop: true,
+      speed: 550,
+      spaceBetween: 0,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+      },
+      thumbs: { swiper: thumbSwiperInst },
+    });
+
+    async function shareThis() {
+      const title = document.title;
+      const url   = window.location.href;
+      if (navigator.share) {
+        try { await navigator.share({ title, url }); } catch (e) {}
+      } else { copyLink(); }
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const el = document.getElementById('copy-label');
+        el.textContent = 'Copied!';
+        setTimeout(() => { el.textContent = 'Copy Link'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

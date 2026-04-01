@@ -151,10 +151,11 @@ const cardData = [
     link: "https://www.verticalfarmdaily.com/article/9794998/predictability-matters-more-than-volume/"
   },
   {
-    img: "assets/img/services/38.jpeg",
+    img: "assets/img/services/38-1.jpeg",
     src: "BusinessWorld",
     desc: "Vivek Raj says hydroponics is farming's sustainable future.",
     lang: "en",
+    imgPosition: "top", 
     link: "https://www.businessworld.in/article/hydroponics-is-the-future-of-farming-%E2%80%93-an-interview-with-vivek-raj-ceo-of-panama-corporation-534314"
   },
   {
@@ -508,11 +509,49 @@ let currentLang = "en";
 const PREVIEW_COUNT = 4;
 
 // ── Single card renderer ──────────────────────────────────────────────────
+// function createCard(card, index) {
+//   const targetLink = card.link ? card.link : card.img;
+//   const hasLink = !!card.link;
+//   const delay = (index % 4) * 100;
+//   const icon = card.lang === "online" ? "link-45deg" : "newspaper";
+
+//   return `
+//     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
+//       <div class="media-card">
+//         <div class="media-card-img-wrap">
+//           <img
+//             src="${card.img}"
+//             alt="${card.desc}"
+//             class="media-card-img"
+//             loading="lazy"
+//             onerror="this.src='assets/img/services/default-online.jpg'"
+//           />
+//           <div class="media-card-overlay">
+//             <a href="${targetLink}" target="_blank" class="media-card-link" title="Read Article">
+//               <i class="bi bi-${hasLink ? 'box-arrow-up-right' : 'zoom-in'}"></i>
+//             </a>
+//           </div>
+//         </div>
+//         <div class="media-card-body">
+//           <span class="media-source-badge">
+//             <i class="bi bi-${icon} me-1"></i>${card.src}
+//           </span>
+//           <h5 class="media-card-title">
+//             <a href="${targetLink}" target="_blank">${card.desc}</a>
+//           </h5>
+//         </div>
+//       </div>
+//     </div>
+//   `;
+// }
+
+
 function createCard(card, index) {
   const targetLink = card.link ? card.link : card.img;
   const hasLink = !!card.link;
   const delay = (index % 4) * 100;
   const icon = card.lang === "online" ? "link-45deg" : "newspaper";
+  const imgPos = card.imgPosition || "center";
 
   return `
     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
@@ -522,6 +561,7 @@ function createCard(card, index) {
             src="${card.img}"
             alt="${card.desc}"
             class="media-card-img"
+            style="object-position: ${imgPos};"
             loading="lazy"
             onerror="this.src='assets/img/services/default-online.jpg'"
           />

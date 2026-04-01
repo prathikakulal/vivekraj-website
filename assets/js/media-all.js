@@ -28,7 +28,7 @@ const cardData = [
   { img: "assets/img/services/35.jpeg", src: "CNBCTV18", desc: "Panama Hydro-X revolutionises hydroponic farming with AI in Karnataka.", lang: "en", link: "https://www.cnbctv18.com/technology/panama-hydro-x-karnataka-company-revolutionising-hydroponic-farming-with-ai-backed-technology-ws-l-19851870.htm/amp" },
   { img: "assets/img/services/36.jpeg", src: "DownToEarth", desc: "Vivek Raj promotes indoor farming and hydroponics as the future of sustainable agriculture.", lang: "en", link: "https://www.downtoearth.org.in/agriculture/indoor-farming-techniques-like-hydroponics-are-the-future-of-sustainable-agriculture-vivek-raj" },
   { img: "assets/img/services/37.jpeg", src: "VerticalFarmDaily", desc: "Vivek Raj stresses predictability over yield in medicinal indoor farming.", lang: "en", link: "https://www.verticalfarmdaily.com/article/9794998/predictability-matters-more-than-volume/" },
-  { img: "assets/img/services/38.jpeg", src: "BusinessWorld", desc: "Vivek Raj says hydroponics is farming's sustainable future.", lang: "en", link: "https://www.businessworld.in/article/hydroponics-is-the-future-of-farming-%E2%80%93-an-interview-with-vivek-raj-ceo-of-panama-corporation-534314" },
+  { img: "assets/img/services/38-1.jpeg", src: "BusinessWorld", desc: "Vivek Raj says hydroponics is farming's sustainable future.", lang: "en", link: "https://www.businessworld.in/article/hydroponics-is-the-future-of-farming-%E2%80%93-an-interview-with-vivek-raj-ceo-of-panama-corporation-534314" },
   { img: "assets/img/services/39.jpeg", src: "NewsBytes", desc: "Vivek Raj invests in AI-powered hydroponics to grow spices and medicinal plants in Karnataka.", lang: "en", link: "https://www.newsbytesapp.com/news/business/panama-hydro-x-to-invest-rs214-crore-in-ai-enabled-hydroponics/tldr" },
   { img: "assets/img/services/41.jpeg", src: "InvestooMarket", desc: "Vivek Raj blends AI and hydroponics to redefine modern farming in Karnataka.", lang: "en", link: "https://investoomarket.com/news/vivek-raj-to-invest-rs214-crore-in-ai-enabled-hydroponic-farming-in-karnataka.1058/" },
   { img: "assets/img/services/42.jpeg", src: "ET Edge Insights", desc: "Vivek Raj highlights resilience and predictability for India's food security.", lang: "en", link: "https://etedge-insights.com/sdgs-and-esg/sustainability/why-predictability-is-the-new-productivity-securing-indias-sovereign-food-interests/" },
@@ -126,18 +126,58 @@ const cardData = [
 let currentLang = "en";
 
 // ── Card renderer ─────────────────────────────────────────────────────────
+// function createCard(card, index) {
+//   const targetLink = card.link ? card.link : card.img;
+//   const hasLink = !!card.link;
+//   const delay = (index % 4) * 100;
+//   const icon = card.lang === "online" ? "link-45deg" : "newspaper";
+
+//   return `
+//     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
+//       <div class="media-card">
+//         <div class="media-card-img-wrap">
+//           <img src="${card.img}" alt="${card.desc}" class="media-card-img" loading="lazy"
+//             onerror="this.src='assets/img/services/default-online.jpg'" />
+//           <div class="media-card-overlay">
+//             <a href="${targetLink}" target="_blank" class="media-card-link" title="Read Article">
+//               <i class="bi bi-${hasLink ? 'box-arrow-up-right' : 'zoom-in'}"></i>
+//             </a>
+//           </div>
+//         </div>
+//         <div class="media-card-body">
+//           <span class="media-source-badge">
+//             <i class="bi bi-${icon} me-1"></i>${card.src}
+//           </span>
+//           <h5 class="media-card-title">
+//             <a href="${targetLink}" target="_blank">${card.desc}</a>
+//           </h5>
+//         </div>
+//       </div>
+//     </div>
+//   `;
+// }
+
+
+
 function createCard(card, index) {
   const targetLink = card.link ? card.link : card.img;
   const hasLink = !!card.link;
   const delay = (index % 4) * 100;
   const icon = card.lang === "online" ? "link-45deg" : "newspaper";
+  const imgPos = card.imgPosition || "center";
 
   return `
     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
       <div class="media-card">
         <div class="media-card-img-wrap">
-          <img src="${card.img}" alt="${card.desc}" class="media-card-img" loading="lazy"
-            onerror="this.src='assets/img/services/default-online.jpg'" />
+          <img
+            src="${card.img}"
+            alt="${card.desc}"
+            class="media-card-img"
+            style="object-position: ${imgPos};"
+            loading="lazy"
+            onerror="this.src='assets/img/services/default-online.jpg'"
+          />
           <div class="media-card-overlay">
             <a href="${targetLink}" target="_blank" class="media-card-link" title="Read Article">
               <i class="bi bi-${hasLink ? 'box-arrow-up-right' : 'zoom-in'}"></i>

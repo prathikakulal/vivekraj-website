@@ -45,7 +45,7 @@ const cardData = [
   { img: "assets/img/services/13.jpg", src: "Kannada Prabha", desc: "Purchase of farmers' vegetables, fruits from Panama Company", lang: "kn" },
   { img: "assets/img/services/15.jpg", src: "Vijaya Karnataka", desc: "Vivek Raj is the Chairman of Panama Institute", lang: "kn" },
   { img: "assets/img/services/16.jpg", src: "Vijaya Karnataka", desc: "Covid Kit distribution to 4350 families", lang: "kn" },
-  { img: "assets/img/services/17.jpg", src: "Jayakirana", desc: "Farmers' Dear Friend: Vivek Raj",imgPosition: "center 30%", lang: "kn" },
+  { img: "assets/img/services/17-1.jpg", src: "Jayakirana", desc: "Farmers' Dear Friend: Vivek Raj",imgFit: "contain",imgPosition: "center center", lang: "kn" },
   { img: "assets/img/services/20.jpg", src: "Prajavani", desc: "No thirst for power, money, popularity", lang: "kn", link: "https://www.prajavani.net/district/dakshina-kannada/prajavani-deccan-herald-mangalore-upsc-883200.html" },
   { img: "assets/img/services/40.jpeg", src: "NewsFirstLive", desc: "Vivek Raj uses AI hydroponics to boost yields threefold in modern farming.", imgPosition: "center 5%",lang: "kn", link: "https://newsfirstlive.com/technology/vivek-raj-invests-rs-214-crore-in-ai-based-hydroponic-farming-ai-increases-yields-threefold-11121357" },
 
@@ -167,6 +167,7 @@ function createCard(card, index) {
   const icon = card.lang === "online" ? "link-45deg" : "newspaper";
   const imgPos = card.imgPosition || "center";
   const imgHeight = card.imgHeight || "220px";
+  const imgFit = card.imgFit || "cover"; 
 
   return `
     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
@@ -176,7 +177,7 @@ function createCard(card, index) {
             src="${card.img}"
             alt="${card.desc}"
             class="media-card-img"
-            style="object-position: ${imgPos}; height: ${imgHeight};"
+            style="object-fit: ${imgFit}; object-position: ${imgPos}; height: ${imgHeight};"
             loading="lazy"
             onerror="this.src='assets/img/services/default-online.jpg'"
           />

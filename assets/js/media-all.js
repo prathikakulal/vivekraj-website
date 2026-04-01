@@ -47,7 +47,7 @@ const cardData = [
   { img: "assets/img/services/16.jpg", src: "Vijaya Karnataka", desc: "Covid Kit distribution to 4350 families", lang: "kn" },
   { img: "assets/img/services/17.jpg", src: "Jayakirana", desc: "Farmers' Dear Friend: Vivek Raj",imgPosition: "center 30%", lang: "kn" },
   { img: "assets/img/services/20.jpg", src: "Prajavani", desc: "No thirst for power, money, popularity", lang: "kn", link: "https://www.prajavani.net/district/dakshina-kannada/prajavani-deccan-herald-mangalore-upsc-883200.html" },
-  { img: "assets/img/services/40.jpeg", src: "NewsFirstLive", desc: "Vivek Raj uses AI hydroponics to boost yields threefold in modern farming.", lang: "kn", link: "https://newsfirstlive.com/technology/vivek-raj-invests-rs-214-crore-in-ai-based-hydroponic-farming-ai-increases-yields-threefold-11121357" },
+  { img: "assets/img/services/40.jpeg", src: "NewsFirstLive", desc: "Vivek Raj uses AI hydroponics to boost yields threefold in modern farming.", imgPosition: "center 5%",lang: "kn", link: "https://newsfirstlive.com/technology/vivek-raj-invests-rs-214-crore-in-ai-based-hydroponic-farming-ai-increases-yields-threefold-11121357" },
 
   // =============================================
   // ONLINE

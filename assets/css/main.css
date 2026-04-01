@@ -2944,6 +2944,13 @@ section,
   object-position: top; /* ← ADD THIS LINE */
 }
 
+@media (max-width: 768px) {
+  .media-card-img {
+    height: 260px;
+    object-position: center 10%;
+  }
+}
+
 .media-card:hover .media-card-img {
   transform: scale(1.06);
 }

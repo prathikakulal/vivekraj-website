@@ -85,6 +85,7 @@ const cardData = [
     src: "CNBCTV18",
     desc: "Vivek Raj advocates for AI-driven food security at the World Economic Forum Davos 2026.",
     lang: "en",
+    imgPosition: "center 5%",
     link: "https://share.google/1LpWHT307ZXg2mYKm"
   },
   {
@@ -106,6 +107,7 @@ const cardData = [
     src: "PTI",
     desc: "Vivek Raj to invest ₹214 crore in AI-powered hydroponic farming in Karnataka.",
     lang: "en",
+    imgPosition: "center 5%",
     link: "https://www.ptinews.com/story/business/indian-entreprenuer-to-invest-rs-214-cr-on-ai-powered-hydroponic-farming/3384298"
   },
   {
@@ -134,6 +136,7 @@ const cardData = [
     src: "CNBCTV18",
     desc: "Panama Hydro-X revolutionises hydroponic farming with AI in Karnataka.",
     lang: "en",
+    imgPosition: "center 10%",
     link: "https://www.cnbctv18.com/technology/panama-hydro-x-karnataka-company-revolutionising-hydroponic-farming-with-ai-backed-technology-ws-l-19851870.htm/amp"
   },
   {
@@ -148,6 +151,7 @@ const cardData = [
     src: "VerticalFarmDaily",
     desc: "Vivek Raj stresses predictability over yield in medicinal indoor farming.",
     lang: "en",
+    imgPosition: "center 15%", 
     link: "https://www.verticalfarmdaily.com/article/9794998/predictability-matters-more-than-volume/"
   },
   {
@@ -155,7 +159,7 @@ const cardData = [
     src: "BusinessWorld",
     desc: "Vivek Raj says hydroponics is farming's sustainable future.",
     lang: "en",
-    imgPosition: "top", 
+    imgPosition: "center 15%",  
     link: "https://www.businessworld.in/article/hydroponics-is-the-future-of-farming-%E2%80%93-an-interview-with-vivek-raj-ceo-of-panama-corporation-534314"
   },
   {

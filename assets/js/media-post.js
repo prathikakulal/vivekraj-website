@@ -472,6 +472,7 @@ const cardData = [
     desc: "Vivek Raj Showcases AI Driven Agriculture at Modi Prix Galien India 2026",
     lang: "events",
     eventPage: "event1.html",
+    galleryPosition: "center 10%",
     gallery: [
       "assets/img/services/47.jpeg",
       "assets/img/services/48.jpeg",

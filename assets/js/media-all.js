@@ -89,6 +89,7 @@ const cardData = [
     desc: "Vivek Raj Showcases AI Driven Agriculture at Modi Prix Galien India 2026",
     lang: "events",
     eventPage: "event1.html",
+    galleryPosition: "center 10%",
     gallery: ["assets/img/services/47.jpeg", "assets/img/services/48.jpeg", "assets/img/services/49.jpeg"],
     date: "March 19, 2026",
     location: "Taj Palace, New Delhi",
@@ -165,6 +166,7 @@ function createCard(card, index) {
   const delay = (index % 4) * 100;
   const icon = card.lang === "online" ? "link-45deg" : "newspaper";
   const imgPos = card.imgPosition || "center";
+  const imgHeight = card.imgHeight || "220px";
 
   return `
     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${delay}">
@@ -174,7 +176,7 @@ function createCard(card, index) {
             src="${card.img}"
             alt="${card.desc}"
             class="media-card-img"
-            style="object-position: ${imgPos};"
+            style="object-position: ${imgPos}; height: ${imgHeight};"
             loading="lazy"
             onerror="this.src='assets/img/services/default-online.jpg'"
           />

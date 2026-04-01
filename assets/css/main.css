@@ -3742,3 +3742,13 @@ section,
 .event-body p + p::before {
   content: " ";
 }
+
+/* Fix face crop for event card swiper images (mobile) */
+.event-card .swiper-slide img {
+  object-position: center 5%;
+}
+
+/* Fix for desktop gallery strip */
+.event-gallery-thumb img {
+  object-position: center 5%;
+}

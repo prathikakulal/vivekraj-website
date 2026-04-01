@@ -195,10 +195,10 @@ const cardData = [
   // REGIONAL (KANNADA) — newspaper cutting images
   // =============================================
   {
-    img: "assets/img/services/3.jpg",
+    img: "assets/img/services/3-1.jpg",
     src: "Udayavani",
     desc: "Panama becomes Mangalore's Pride",
-    imgPosition: "center 20%",  
+    imgPosition: "center 2%",  
     lang: "kn"
   },
   {
@@ -248,7 +248,7 @@ const cardData = [
     img: "assets/img/services/17.jpg",
     src: "Jayakirana",
     desc: "Farmers' Dear Friend: Vivek Raj",
-    imgPosition: "center 3%",
+    imgPosition: "center 30%",
     lang: "kn"
   },
   {
@@ -288,6 +288,7 @@ const cardData = [
     src: "CNBCTV18",
     desc: "Vivek Raj advocates for AI-driven food security at the World Economic Forum Davos 2026.",
     lang: "online",
+    imgPosition: "center 5%",
     link: "https://share.google/1LpWHT307ZXg2mYKm"
   },
   {
@@ -309,6 +310,7 @@ const cardData = [
     src: "PTI",
     desc: "Vivek Raj to invest ₹214 crore in AI-powered hydroponic farming in Karnataka.",
     lang: "online",
+    imgPosition: "center 10%",
     link: "https://www.ptinews.com/story/business/indian-entreprenuer-to-invest-rs-214-cr-on-ai-powered-hydroponic-farming/3384298"
   },
   {
@@ -330,6 +332,7 @@ const cardData = [
     src: "BW CFO World",
     desc: "Vivek Raj strengthens agri-tech footprint with AI-driven hydroponics in Karnataka.",
     lang: "online",
+    imgPosition: "center 5%",
     link: "https://share.google/nMbc6BL67M4NZzoiA"
   },
   {
@@ -337,6 +340,7 @@ const cardData = [
     src: "CNBCTV18",
     desc: "Panama Hydro-X revolutionises hydroponic farming with AI in Karnataka.",
     lang: "online",
+    imgPosition: "center 5%",
     link: "https://www.cnbctv18.com/technology/panama-hydro-x-karnataka-company-revolutionising-hydroponic-farming-with-ai-backed-technology-ws-l-19851870.htm/amp"
   },
   {

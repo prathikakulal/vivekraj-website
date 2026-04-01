@@ -37,15 +37,15 @@ const cardData = [
   // =============================================
   // REGIONAL (KANNADA)
   // =============================================
-  { img: "assets/img/services/3.jpg", src: "Udayavani", desc: "Panama becomes Mangalore's Pride", lang: "kn" },
-  { img: "assets/img/services/6.jpg", src: "Udayavani", desc: "Panama Corporation gains respect in presence of guests", lang: "kn" },
+  { img: "assets/img/services/3.jpg", src: "Udayavani", desc: "Panama becomes Mangalore's Pride", imgPosition: "center 20%",  lang: "kn" },
+  { img: "assets/img/services/6.jpg", src: "Udayavani", desc: "Panama Corporation gains respect in presence of guests",imgPosition: "center 15%", lang: "kn" },
   { img: "assets/img/services/9.jpg", src: "Praja Vani", desc: "Diligence: Efforts of Vivek Raj and his success", lang: "kn" },
   { img: "assets/img/services/11.jpg", src: "Jayakirana", desc: "Let's Distribute the Kits to the Need", lang: "kn" },
   { img: "assets/img/services/12.jpg", src: "Jayakirana", desc: "Organized Struggle against MRPL Necessary", lang: "kn" },
   { img: "assets/img/services/13.jpg", src: "Kannada Prabha", desc: "Purchase of farmers' vegetables, fruits from Panama Company", lang: "kn" },
   { img: "assets/img/services/15.jpg", src: "Vijaya Karnataka", desc: "Vivek Raj is the Chairman of Panama Institute", lang: "kn" },
   { img: "assets/img/services/16.jpg", src: "Vijaya Karnataka", desc: "Covid Kit distribution to 4350 families", lang: "kn" },
-  { img: "assets/img/services/17.jpg", src: "Jayakirana", desc: "Farmers' Dear Friend: Vivek Raj", lang: "kn" },
+  { img: "assets/img/services/17.jpg", src: "Jayakirana", desc: "Farmers' Dear Friend: Vivek Raj",imgPosition: "center 3%", lang: "kn" },
   { img: "assets/img/services/20.jpg", src: "Prajavani", desc: "No thirst for power, money, popularity", lang: "kn", link: "https://www.prajavani.net/district/dakshina-kannada/prajavani-deccan-herald-mangalore-upsc-883200.html" },
   { img: "assets/img/services/40.jpeg", src: "NewsFirstLive", desc: "Vivek Raj uses AI hydroponics to boost yields threefold in modern farming.", lang: "kn", link: "https://newsfirstlive.com/technology/vivek-raj-invests-rs-214-crore-in-ai-based-hydroponic-farming-ai-increases-yields-threefold-11121357" },
 

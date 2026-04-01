@@ -198,12 +198,14 @@ const cardData = [
     img: "assets/img/services/3.jpg",
     src: "Udayavani",
     desc: "Panama becomes Mangalore's Pride",
+    imgPosition: "center 20%",  
     lang: "kn"
   },
   {
     img: "assets/img/services/6.jpg",
     src: "Udayavani",
     desc: "Panama Corporation gains respect in presence of guests",
+    imgPosition: "center 15%", 
     lang: "kn"
   },
   {
@@ -246,6 +248,7 @@ const cardData = [
     img: "assets/img/services/17.jpg",
     src: "Jayakirana",
     desc: "Farmers' Dear Friend: Vivek Raj",
+    imgPosition: "center 3%",
     lang: "kn"
   },
   {
